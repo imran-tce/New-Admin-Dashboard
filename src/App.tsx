@@ -3,6 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import { AppDrawer } from "./shared/drawer/AppDrawer";
 
+const CLOSED_DRAWER_WIDTH=96
+
 function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -22,12 +24,16 @@ function App() {
     <div
       style={{
         boxSizing: "border-box",
+        padding:0,
         margin: "auto",
         width: "1512px",
-        border: "2px solid red",
-        paddingLeft: "96px",
+        position:"relative",
+        paddingLeft:CLOSED_DRAWER_WIDTH+25
       }}
     >
+      <div style={{position:"absolute", left:0, top:0, width:CLOSED_DRAWER_WIDTH, background:"#050418", height:"100vh"}} >
+        .
+      </div>
       {/* <AppDrawer
         isDrawerOpen={isDrawerOpen}
         onDrawerToggle={handleDrawerToggle}
@@ -36,7 +42,10 @@ function App() {
         contents={[]}
       /> */}
 
-      <div>sqsqqs</div>
+      <div style={{width:"100%"}} >
+        shjhsjkw
+      </div>
+
     </div>
   );
 }
