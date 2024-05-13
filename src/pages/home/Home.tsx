@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className={classes.root}>
-      <div className={classes.headerContainer} >
+      {/* <div className={classes.headerContainer} >
       <SearchBar search_text={"wdwdw"} handleChange={undefined}  />
       <div className={classes.headerUserDetails} >
       <SelectInput
@@ -32,8 +32,11 @@ export default function Home() {
         {user.name}
       </Typography>
       </div>
-      </div>
-           
+      </div> */}
+      <Typography variant="h1"  >
+        This is H1 Heading
+      </Typography>
+
    
     </div>
   );
