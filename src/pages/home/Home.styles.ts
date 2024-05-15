@@ -42,6 +42,8 @@ const useStyles = makeStyles((theme: Theme) =>
       border: "1px solid #000",
       gridColumn: "1/3",
       gridRow: "1/3",
+      background:"#F8F8F8",
+      position:"relative"
     },
     gridItem2: {
       border: "1px solid #000",

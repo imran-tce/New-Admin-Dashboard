@@ -6,13 +6,22 @@ import SearchBar from "../../shared/searchBar/SearchBar";
 import { Avatar, Typography } from "@mui/material";
 import { user } from "../../dummy data/user";
 import Text from "../../shared/texts/Text";
+import TrlStatus from "../../components/home/TrlStatus";
+import AcademicStatus from "../../components/home/AcademicStatus";
+
+const GRID_ITEM_1 = ["Academic", "TRL Status"];
 
 export default function Home() {
   const classes = useStyles();
   const [role, set_role] = useState(ROLES[0]);
+  const [grid_1_selection, set_grid_1_selection] = useState(GRID_ITEM_1[0]);
 
   const handleRoleChange = (e: any) => {
     set_role(e.target.value);
+  };
+
+  const handleChangeGrid1 = (e: any) => {
+    set_grid_1_selection(e.target.value);
   };
 
   function formatDate(date: Date): string {
@@ -30,14 +39,7 @@ export default function Home() {
       <div className={classes.headerContainer}>
         <SearchBar search_text={"wdwdw"} handleChange={undefined} />
         <div className={classes.headerUserDetails}>
-          <SelectInput
-            keys={ROLES}
-            value={role}
-            autoWidth={false}
-            multiple={false}
-            native={false}
-            onChange={handleRoleChange}
-          />
+          <SelectInput keys={ROLES} value={role} onChange={handleRoleChange} />
           <Avatar src={user.photo_url} alt="" />
           <Text variant="body6">{user.name}</Text>
         </div>
@@ -49,7 +51,22 @@ export default function Home() {
           {formatDate(new Date())} | {user.department}{" "}
         </Text>
         <div className={classes.gridContainer}>
-          <div className={classes.gridItem1}>Item 1</div>
+          <div className={classes.gridItem1}>
+            <div style={{ position: "absolute", left: 5, top: 5 }}>
+              <SelectInput
+                keys={GRID_ITEM_1}
+                value={grid_1_selection}
+                onChange={handleChangeGrid1}
+              />
+            </div>
+            <div style={{ width: "100%", height: "350px" }}>
+              {grid_1_selection === "Academic" ? (
+                <AcademicStatus />
+              ) : (
+                <TrlStatus />
+              )}
+            </div>
+          </div>
           <div className={classes.gridItem2}>Item 2</div>
 
           <div className={classes.gridItem3}>Item 3</div>
@@ -62,8 +79,6 @@ export default function Home() {
           <div className={classes.gridItem8}>Item 8</div>
           <div className={classes.gridItem9}>Item 9</div>
           <div className={classes.gridItem10}>Item 10</div>
-
-
         </div>
       </div>
     </div>

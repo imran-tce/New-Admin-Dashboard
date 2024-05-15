@@ -22,7 +22,6 @@ interface TextProps {
 }
 
 const Text = styled.p<TextProps>`
-  font-family: sans-serif;
   ${(props: TextProps) => {
     switch (props.variant) {
       case "h1":
@@ -30,6 +29,7 @@ const Text = styled.p<TextProps>`
           font-size: 36px;
           font-weight: 600;
           line-height:30px;
+          font-family: "SF Pro Display Semibold";
           color: ${props.color || "#000"}
         `;
       case "h2":
@@ -37,6 +37,7 @@ const Text = styled.p<TextProps>`
             font-size: 30px;
             font-weight: 600;
             line-height:24px;
+            font-family: "SF Pro Display Semibold";
             color: ${props.color || "#000"}
           `;
       case "h3":
@@ -44,6 +45,7 @@ const Text = styled.p<TextProps>`
             font-size: 30px;
             font-weight: 700;
             line-height:24px;
+            font-family: "SF Pro Display Bold";
             color: ${props.color || "#000"}
               `;
       case "h4":
@@ -51,6 +53,7 @@ const Text = styled.p<TextProps>`
             font-size: 24px;
             font-weight: 600;
             line-height:20px;
+            font-family: "SF Pro Display Semibold";
             color: ${props.color || "#000"}
           `;
       case "h5":
@@ -58,36 +61,42 @@ const Text = styled.p<TextProps>`
             font-size: 16px;
             font-weight: 600;
             line-height:14px;
+            font-family: "SF Pro Display Semibold";
             color: ${props.color || "#000"}
           `;
       case "subtitle1":
         return `
                 font-size: 16px;
                 font-weight: 500;
+                font-family: "SF Pro Display Medium";
                 color: ${props.color || "#000"}
               `;
       case "subtitle2":
         return `
             font-size: 14px;
             font-weight: 600;
+            font-family: "SF Pro Display Semibold";
             color: ${props.color || "#000"}
           `;
       case "subtitle3":
         return `
             font-size: 13px;
             font-weight: 600;
+            font-family: "SF Pro Display Semibold";
             color: ${props.color || "#000"}
           `;
       case "body1":
         return `
             font-size: 20px;
             font-weight: 500;
+            font-family: "SF Pro Display Medium";
             color: ${props.color || "#000"}
           `;
       case "body2":
         return `
             font-size: 20px;
             font-weight: 400;
+            font-family: "SF Pro Display Regular";
             color: ${props.color || "#000"}
           `;
       case "body3":
@@ -96,30 +105,35 @@ const Text = styled.p<TextProps>`
             font-weight: 400;
             line-height:0;
             margin:0;
+            font-family: "SF Pro Display Regular";
             color: ${props.color || "#000"}
           `;
       case "body4":
         return `
             font-size: 14px;
             font-weight: 400;
+            font-family: "SF Pro Display Regular";
             color: ${props.color || "#000"}
           `;
       case "body5":
         return `
             font-size: 14px;
             font-weight: 500;
+            font-family: "SF Pro Display Medium";
             color: ${props.color || "#000"}
           `;
       case "body6":
         return `
             font-size: 14px;
             font-weight: 600;
+            font-family: "SF Pro Display Semibold";
             color: ${props.color || "#000"}
           `;
       case "caption":
         return `
                 font-size: 12px;
                 font-weight: 400;
+                font-family: "SF Pro Display Regular";
                 color: ${props.color || "#000"}
               `;
 
