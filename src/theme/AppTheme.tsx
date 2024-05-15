@@ -14,6 +14,23 @@ const theme = createTheme({
       fontWeight: 600,
       lineHeight: "24px",
     },
+    h3: {
+      fontFamily: ["SF Pro Display Bold", "sans-serif"].join(","),
+      fontSize: "35px",
+      lineHeight: "24px",
+    },
+    h4: {
+      fontFamily: ["SF Pro Display Bold", "sans-serif"].join(","),
+      fontSize: "30px",
+      fontWeight: 600,
+      lineHeight: "24px",
+    },
+    h5: {
+      fontFamily: ["SF Pro Display Bold", "sans-serif"].join(","),
+      fontSize: "30px",
+      fontWeight: 600,
+      lineHeight: "24px",
+    },
   },
 //   components: {
 //     MuiCssBaseline: {

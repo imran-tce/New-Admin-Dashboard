@@ -46,7 +46,7 @@ export default function Home() {
       </div>
 
       <div>
-        <Text variant="h2">{user.name}</Text>
+        <h2>{user.name}</h2>
         <Text variant="body3" color="#626A79">
           {formatDate(new Date())} | {user.department}{" "}
         </Text>

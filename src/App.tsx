@@ -31,8 +31,8 @@ function App() {
           style={{
             boxSizing: "border-box",
             padding: 0,
-            margin: "auto",
-            width: "1512px",
+            // margin: "auto",
+            width: "100%",
             position: "relative",
             paddingLeft: CLOSED_DRAWER_WIDTH + 25,
             border: "1px solid #000",

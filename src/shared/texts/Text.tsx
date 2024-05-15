@@ -103,8 +103,6 @@ const Text = styled.p<TextProps>`
         return `
             font-size: 16px;
             font-weight: 400;
-            line-height:0;
-            margin:0;
             font-family: "SF Pro Display Regular";
             color: ${props.color || "#000"}
           `;
