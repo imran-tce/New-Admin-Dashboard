@@ -13,9 +13,15 @@ export default function ProfilePage() {
   const [user_profile_details, set_user_profile_details] =
     useState<UserProfileDetails>({} as UserProfileDetails);
 
+    console.log("faculty id", facultyId)
+    console.log("faculty", user_profile_details)
   useEffect(() => {
+    console.log("inside hook outside if")
     if (facultyId) {
+      console.log("inside hook inside if")
+
       const faculty = faculties.find((item) => item.id === facultyId);
+      console.log("facylty in useEffect", faculty)
       if (faculty) {
         set_user_profile_details(faculty as UserProfileDetails);
       }
@@ -50,21 +56,17 @@ export default function ProfilePage() {
             user_profile_details.user?.name}
         </h1>
 
-        {
-          user_profile_details.personal_details?.about && 
+        {user_profile_details.personal_details?.about && (
           <div className={classes.details}>
-             <h4>Introduction</h4>
-          <Text variant="body3">
-            {user_profile_details.personal_details?.about}
-          </Text>
-        </div>
-        }
-
-      
+            <h4>Introduction</h4>
+            <Text variant="body3">
+              {user_profile_details.personal_details?.about}
+            </Text>
+          </div>
+        )}
 
         {user_profile_details.personal_details && (
           <div className={classes.details}>
-           
             <div className={classes.subContainer}>
               <img src="/facultyProfilePage/work_icon.png" />
               <div>

@@ -4,8 +4,6 @@ import { createStyles, makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: "100%",
-      height: "100vh",
       margin: 0,
       padding: 0,
     },
@@ -14,31 +12,32 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
       gap: "2rem",
       flexWrap: "wrap",
-      paddingTop:"1rem"
+      paddingTop:"1rem",
     },
-    facultyCard: {
+    studentCard: {
       boxSizing: "border-box",
       margin: 0,
-      padding: "1rem",
+      padding: "0.75rem",
       background: "#F0F0F0",
       display: "flex",
       alignItems: "center",
       gap: "1rem",
       borderRadius: "10px",
-      width: "375px",
-      height: "96px",
+      width: "300px",
+      height: "76px",
       cursor: "pointer",
 
       "& .MuiAvatar-root": {
-        width: "70px",
-        height: "70px",
+        width: "42px",
+        height: "42px",
       },
     },
-    facultyDetails: {
+    studentDetails: {
       textAlign: "left",
-      "& h4": {
+      "& h5": {
         margin: "0.5rem 0",
-        fontSize:"20px"
+        fontSize:"16px"
+
       },
       "& p": {
         margin: 0,

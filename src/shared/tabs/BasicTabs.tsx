@@ -1,12 +1,10 @@
 import {
   Box,
-  createStyles,
-  makeStyles,
   Tab,
   Tabs,
   Theme,
-  Typography,
-} from "@material-ui/core";
+} from "@mui/material";
+import { createStyles, makeStyles } from "@mui/styles";
 import React from "react";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -14,12 +12,14 @@ const useStyles = makeStyles((theme: Theme) =>
     tabsContainer: {
       width: "100%",
       textAlign: "left",
-      margin: "2rem 0",
+      margin: 0,
       "& .MuiTabs-root": {
         background: "#FFF",
         "& .MuiTab-root": {
           textTransform: "capitalize",
-          fontWeight: 700,
+          fontWeight: 800,
+          fontSize:"14px",
+          fontFamily:"SF Pro Display Bold"
         },
       },
     },
@@ -44,8 +44,8 @@ export function BasicTabPanel(props: BasicTabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
+        <Box p={0}>
+          <p>{children}</p>
         </Box>
       )}
     </div>
@@ -74,28 +74,31 @@ export function BasicTabs({
   };
 
   return (
-    <div className={classes.tabsContainer}>
+    <div     className={classes.tabsContainer}>
       <Tabs
+  
         variant={full_width ? "fullWidth" : "standard"}
         value={value}
         onChange={handleChangeTab}
         TabIndicatorProps={{
-          style: { backgroundColor: tabColor ? tabColor : "#19184a" },
+          style: { backgroundColor: tabColor ? tabColor : "#19184a", width:2, display:"none" },
+        }}
+        style={{height:0}}
+        sx={{
+          color:"red",
+          padding:"-1rem"
         }}
       >
         {tabLabels.map((label: string, index: number) => {
           const activeColor = getActiveTabColors(index + 1);
           return (
             <Tab
-              fullWidth={full_width}
-              label={
-                <Typography
-                  variant="body1"
-                  style={{ color: activeColor, margin: 0, fontWeight: 700 }}
-                >
-                  {label}
-                </Typography>
-              }
+              sx={{
+                padding:0,
+                margin:0,
+                color:activeColor
+              }}
+              label={label}
               value={index + 1}
             />
           );

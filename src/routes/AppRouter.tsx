@@ -3,6 +3,7 @@ import PrivateRoute from "./PrivateRoute";
 import Home from "../pages/home/Home";
 import Faculties from "../pages/faculties/Faculties";
 import FacultyProfilePage from "../pages/faculties/profile/ProfilePage";
+import MentoringProjects from "../pages/mentors/projects/MentoringProjects";
 
 export default function AppRouter() {
   return (
@@ -28,6 +29,15 @@ export default function AppRouter() {
         element={
           <PrivateRoute>
             <FacultyProfilePage />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/projects"
+        element={
+          <PrivateRoute>
+            <MentoringProjects />
           </PrivateRoute>
         }
       />
