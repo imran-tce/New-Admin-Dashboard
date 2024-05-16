@@ -1,9 +1,4 @@
-import {
-  Box,
-  Tab,
-  Tabs,
-  Theme,
-} from "@mui/material";
+import { Box, Tab, Tabs, Theme } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 import React from "react";
 
@@ -17,9 +12,8 @@ const useStyles = makeStyles((theme: Theme) =>
         background: "#FFF",
         "& .MuiTab-root": {
           textTransform: "capitalize",
-          fontWeight: 800,
-          fontSize:"14px",
-          fontFamily:"SF Pro Display Bold"
+          fontSize: "14px",
+          fontFamily: "SF Pro Display Bold",
         },
       },
     },
@@ -44,7 +38,7 @@ export function BasicTabPanel(props: BasicTabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box p={0}>
+        <Box pt={2} >
           <p>{children}</p>
         </Box>
       )}
@@ -74,19 +68,21 @@ export function BasicTabs({
   };
 
   return (
-    <div     className={classes.tabsContainer}>
+    <div className={classes.tabsContainer}>
       <Tabs
-  
         variant={full_width ? "fullWidth" : "standard"}
         value={value}
         onChange={handleChangeTab}
         TabIndicatorProps={{
-          style: { backgroundColor: tabColor ? tabColor : "#19184a", width:2, display:"none" },
+          style: {
+            backgroundColor: tabColor ? tabColor : "#FDC20F",
+            height:"3px"
+          },
         }}
-        style={{height:0}}
+        style={{ height: 0 }}
         sx={{
-          color:"red",
-          padding:"-1rem"
+          color: "red",
+          padding: "-1rem",
         }}
       >
         {tabLabels.map((label: string, index: number) => {
@@ -94,9 +90,7 @@ export function BasicTabs({
           return (
             <Tab
               sx={{
-                padding:0,
-                margin:0,
-                color:activeColor
+                color: activeColor,
               }}
               label={label}
               value={index + 1}
