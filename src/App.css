@@ -8,29 +8,29 @@ h1 {
   font-size: 36px;
   font-weight: 600;
   line-height: 30px;
-  font-family: "SF Pro Display Semibold";
+  font-family: "SF Pro Display Semibold" !important;
 }
 h2 {
   font-size: 30px;
   font-weight: 600;
   line-height: 24px;
-  font-family: "SF Pro Display Semibold";
+  font-family: "SF Pro Display Semibold" !important;
 }
 h3 {
   font-size: 30px;
   font-weight: 700;
   line-height: 24px;
-  font-family: "SF Pro Display Bold";
+  font-family: "SF Pro Display Bold" !important;
 }
 h4 {
   font-size: 24px;
   font-weight: 600;
   line-height: 20px;
-  font-family: "SF Pro Display Semibold";
+  font-family: "SF Pro Display Semibold" !important;
 }
 h5 {
   font-size: 16px;
   font-weight: 600;
   line-height: 14px;
-  font-family: "SF Pro Display Semibold";
+  font-family: "SF Pro Display Semibold" !important;
 }
