@@ -4,6 +4,7 @@ import Home from "../pages/home/Home";
 import Faculties from "../pages/faculties/Faculties";
 import FacultyProfilePage from "../pages/faculties/profile/ProfilePage";
 import MentoringProjects from "../pages/mentors/projects/MentoringProjects";
+import YearWiseBatches from "../pages/batches/YearWiseBatches";
 
 export default function AppRouter() {
   return (
@@ -38,6 +39,15 @@ export default function AppRouter() {
         element={
           <PrivateRoute>
             <MentoringProjects />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/batches"
+        element={
+          <PrivateRoute>
+            <YearWiseBatches />
           </PrivateRoute>
         }
       />
