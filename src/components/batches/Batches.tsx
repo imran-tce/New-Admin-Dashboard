@@ -12,20 +12,21 @@ import { useNavigate } from "react-router-dom";
 
 export interface IBatch extends Batch {
   author: UserMeta;
-  academic_year:number;
-  semester:number
+  academic_year: number;
+  semester: number;
 }
 
-interface Props{
-  batches:IBatch[]
+interface Props {
+  batches: IBatch[];
 }
 
-export default function Batches({batches}:Props) {
+export default function Batches({ batches }: Props) {
   const navigate = useNavigate();
   const [anchor_el, set_anchor_el] = useState<null | HTMLElement>(null);
   const [selected_batch, set_selected_batch] = useState<IBatch>({} as IBatch);
 
   const handleMenuClick = (e: any, batch: IBatch) => {
+    e.stopPropagation();
     set_anchor_el(e.currentTarget);
     set_selected_batch(batch);
   };
@@ -60,7 +61,6 @@ export default function Batches({batches}:Props) {
               position: "relative",
               cursor: "pointer",
             }}
-            onClick={() => handleCardClick(batch.id)}
           >
             <CardMedia
               component="img"
@@ -79,7 +79,10 @@ export default function Batches({batches}:Props) {
             >
               <img src="/vertical_dots.svg" />
             </div>
-            <CardContent sx={{ mb: 0, pb: 0 }}>
+            <CardContent
+              sx={{ mb: 0, pb: 0 }}
+              onClick={() => handleCardClick(batch.id)}
+            >
               <Typography gutterBottom variant="h5" color="black" noWrap>
                 {batch.title}
               </Typography>

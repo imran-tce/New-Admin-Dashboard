@@ -48,7 +48,7 @@ export default function BatchDetails() {
   const [filtered_members, set_filtered_members] = useState<
     BatchMembersDummy[]
   >([]);
-  const [share_list, set_share_list] = useState(true);
+  const [share_list, set_share_list] = useState(false);
   const [share_success, set_share_success] = useState(false);
   const [examiner, set_examiner] = useState("");
 
