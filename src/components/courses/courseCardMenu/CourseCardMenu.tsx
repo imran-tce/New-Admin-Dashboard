@@ -1,19 +1,19 @@
 import { useState } from "react";
-import Share from "../../shared/SocialShare/Share";
-import { get_time_zone_offset_date, getFormattedDate } from "../../utils/utils";
-import { IBatch } from "../batches/Batches";
-import useStyles from "./BatchCardMenu.styles";
+import Share from "../../../shared/SocialShare/Share";
+import { get_time_zone_offset_date, getFormattedDate } from "../../../utils/utils";
+import useStyles from "./CourseCardMenu.styles";
 import { Menu, Typography } from "@mui/material";
+import { ICourse } from "../../../models/apiModels";
 
 interface IProp {
-  selected_batch: IBatch;
+  selected_course: ICourse;
   anchorEl: any;
   callback: (anchorEl: null) => void;
 }
 
-export default function BatchCardMenu(prop: IProp) {
+export default function CourseCardMenu(prop: IProp) {
   const classes = useStyles();
-  const selected_batch = prop.selected_batch;
+  const selected_course = prop.selected_course;
 
   const [copied_link, set_copied_link] = useState<string | undefined>(
     undefined
@@ -28,7 +28,7 @@ export default function BatchCardMenu(prop: IProp) {
   const handleCopiedLink = (id: string) => {
     const env_domain = process.env.REACT_APP_DOMAIN;
     const domain = `https://${env_domain}`;
-    const path = `projects/${id}`;
+    const path = `courses/${id}`;
 
     navigator.clipboard
       .writeText(`${domain}/${path}`)
@@ -81,14 +81,14 @@ export default function BatchCardMenu(prop: IProp) {
             {share_open && (
               <div className={classes.shareContainer}>
                 <Share
-                  description={`Checkout project- ${selected_batch.title}`}
+                  description={`Checkout course- ${selected_course.title}`}
                 />
               </div>
             )}
           </div>
           <div
             className={classes.copyLink}
-            onClick={() => handleCopiedLink(selected_batch?.id)}
+            onClick={() => handleCopiedLink(selected_course?.id)}
           >
             <div>
               <img src="/icons/copy-link-dark.svg" />
@@ -129,7 +129,7 @@ export default function BatchCardMenu(prop: IProp) {
                   variant="caption"
                   component={"p"}
                 >
-                  {selected_batch?.author?.display_name}
+                  {selected_course?.author?.display_name}
                 </Typography>
               </div>
             </div>
@@ -151,7 +151,7 @@ export default function BatchCardMenu(prop: IProp) {
                 >
                   {getFormattedDate(
                     get_time_zone_offset_date(
-                      new Date(selected_batch?.created_at)
+                      new Date(selected_course?.created_at)
                     )
                   )}
                 </Typography>
@@ -175,7 +175,7 @@ export default function BatchCardMenu(prop: IProp) {
                 >
                   {getFormattedDate(
                     get_time_zone_offset_date(
-                      new Date(selected_batch?.updated_at)
+                      new Date(selected_course?.updated_at)
                     )
                   )}
                 </Typography>

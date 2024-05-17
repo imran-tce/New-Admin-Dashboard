@@ -1,38 +1,32 @@
-import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActions } from "@mui/material";
 import { useState } from "react";
-import BatchCardMenu from "./batchCardMenu/BatchCardMenu";
-import { UserMeta } from "../../models/apiModels";
-import { Batch } from "../../../../skill-ed-web/src/supabaseServices/models";
-import { useNavigate } from "react-router-dom";
+import { ICourse } from "../../models/apiModels";
 
-export interface IBatch extends Batch {
-  author: UserMeta;
-  academic_year: number;
-  semester: number;
-}
+import { useNavigate } from "react-router-dom";
+import CourseCardMenu from "./courseCardMenu/CourseCardMenu";
 
 interface Props {
-  batches: IBatch[];
+  courses: ICourse[];
 }
 
-export default function Batches({ batches }: Props) {
+export default function Courses({ courses }: Props) {
   const navigate = useNavigate();
   const [anchor_el, set_anchor_el] = useState<null | HTMLElement>(null);
-  const [selected_batch, set_selected_batch] = useState<IBatch>({} as IBatch);
+  const [selected_course, set_selected_course] = useState<ICourse>(
+    {} as ICourse
+  );
 
-  const handleMenuClick = (e: any, batch: IBatch) => {
+  const handleMenuClick = (e: any, batch: ICourse) => {
     e.stopPropagation();
     set_anchor_el(e.currentTarget);
-    set_selected_batch(batch);
+    set_selected_course(batch);
   };
 
   const handleCardClick = (id: string) => {
-    navigate(`/batches/${id}`);
+    navigate(`/courses/${id}`);
   };
 
   return (
@@ -46,10 +40,10 @@ export default function Batches({ batches }: Props) {
         flexWrap: "wrap",
       }}
     >
-      {batches.map((batch: any, index) => {
+      {courses.map((course: any, index) => {
         return (
           <Card
-            key={batch.id}
+            key={course.id}
             elevation={0}
             sx={{
               ":hover": { boxShadow: "none" },
@@ -75,26 +69,20 @@ export default function Batches({ batches }: Props) {
                 right: 8,
                 cursor: "pointer",
               }}
-              onClick={(e: any) => handleMenuClick(e, batch)}
+              onClick={(e: any) => handleMenuClick(e, course)}
             >
               <img src="/vertical_dots.svg" />
             </div>
             <CardContent
               sx={{ mb: 0, pb: 0 }}
-              onClick={() => handleCardClick(batch.id)}
+              onClick={() => handleCardClick(course.id)}
             >
               <Typography gutterBottom variant="h5" color="black" noWrap>
-                {batch.title}
+                {course.title}
               </Typography>
             </CardContent>
-            <CardActions sx={{ mt: 0, pt: 1 }}>
-              <img src="/user.svg" alt="U" />
-              <Typography variant="BM14" color="black">
-                {batch.capacity} Students
-              </Typography>
-            </CardActions>
-            <BatchCardMenu
-              selected_batch={selected_batch}
+            <CourseCardMenu
+              selected_course={selected_course}
               anchorEl={anchor_el}
               callback={(anchorEl) => {
                 set_anchor_el(anchorEl);

@@ -1,12 +1,9 @@
 import {
   FormControl,
   InputLabel,
-  keyframes,
   MenuItem,
   Select,
 } from "@mui/material";
-import { SelectInputProps } from "@mui/material/Select/SelectInput";
-import React from "react";
 import useStyles from "./SelectInput.styles";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 

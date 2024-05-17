@@ -6,6 +6,7 @@ import FacultyProfilePage from "../pages/faculties/profile/ProfilePage";
 import MentoringProjects from "../pages/mentors/projects/MentoringProjects";
 import YearWiseBatches from "../pages/batches/YearWiseBatches";
 import BatchDetails from "../pages/batches/BatchDetails/BatchDetails";
+import Courses from "../pages/courses/Courses";
 
 export default function AppRouter() {
   return (
@@ -58,6 +59,15 @@ export default function AppRouter() {
         element={
           <PrivateRoute>
             <BatchDetails />
+          </PrivateRoute>
+        }
+      />
+
+<Route
+        path="/courses"
+        element={
+          <PrivateRoute>
+            <Courses />
           </PrivateRoute>
         }
       />

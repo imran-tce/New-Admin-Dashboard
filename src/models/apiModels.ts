@@ -634,3 +634,7 @@ export interface StudentSkillTagScore {
 export interface StudentSkillScore {
   [skill_type: string]: StudentSkillTagScore[];
 }
+
+export interface ICourse extends Course{
+  author:UserMeta
+}

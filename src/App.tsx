@@ -35,6 +35,7 @@ function App() {
             width: "100%",
             position: "relative",
             paddingLeft: CLOSED_DRAWER_WIDTH + 25,
+            paddingRight:"2rem"
           }}
         >
           <div
