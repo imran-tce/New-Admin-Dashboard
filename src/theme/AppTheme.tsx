@@ -127,7 +127,7 @@ const theme = createTheme({
       textAlign: "left",
       fontSize: "30px", // Set heading 3 font size
       fontFamily:["SF Pro Display Bold","sans-serif"].join(","),
-      fontWeight: 600, // Set heading 3 font weight
+      fontWeight: 700, // Set heading 3 font weight
       lineHeight: "24px", // Set heading 3 line height
     },
     h4: {
@@ -153,7 +153,7 @@ const theme = createTheme({
     },
     subtitle2: {
       textAlign: "left",
-      fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
+      fontFamily:["SF Pro Display Semibold","sans-serif"].join(","),
       fontSize: "14px", // Set subtitle 2 font size
       fontWeight: 600, // Set subtitle 2 font weight
       lineHeight: "initial", // Set subtitle 2 line height
@@ -179,19 +179,22 @@ const theme = createTheme({
       fontWeight: 400,
       lineHeight: "initial",
     },
-    body1: {
+    BR16: {
       textAlign: "left",
-      fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
-      fontSize: "14px", // Set body 1 font size
-      fontWeight: 600, // Set body 1 font weight
-      lineHeight: "initial", // Set body 1 line height
-    },
-    body2: {
-      fontSize: "14px", // Set body 2 font size
+      fontSize: "16px",
       fontFamily:["SF Pro Display Regular","sans-serif"].join(","),
-      fontWeight: 400, // Set body 2 font weight
-      lineHeight: "initial", // Set body 2 line height
+      fontWeight: 400,
+      lineHeight: "initial",
     },
+    BR14: {
+      textAlign: "left",
+      fontSize: "14px",
+      fontFamily:["SF Pro Display Regular","sans-serif"].join(","),
+      fontWeight: 400,
+      lineHeight: "initial",
+    },
+ 
+ 
     BM14: {
       textAlign: "left",
       fontSize: "14px",

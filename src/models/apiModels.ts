@@ -505,7 +505,6 @@ export interface UserMeta {
   branch: string;
   semester: number;
   usn: string;
-  created_by: string;
   gender: string;
   phone_numbers: string[];
   about: string;

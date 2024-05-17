@@ -5,8 +5,9 @@ import SearchIcon from "@mui/icons-material/Search";
 interface IProps {
   search_text: string;
   handleChange: any;
+  placeholder?:any
 }
-function SearchBar({ search_text, handleChange }: IProps) {
+function SearchBar({ search_text, handleChange, placeholder }: IProps) {
   const classes = useStyles();
   return (
     <div className={classes.search}>
@@ -14,7 +15,7 @@ function SearchBar({ search_text, handleChange }: IProps) {
         <SearchIcon />
       </div>
       <InputBase
-        placeholder={"Type here to search"}
+        placeholder={placeholder ? placeholder : "Type here to search"}
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,

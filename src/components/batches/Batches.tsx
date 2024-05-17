@@ -6,16 +6,21 @@ import Typography from "@mui/material/Typography";
 import { CardActions } from "@mui/material";
 import { useState } from "react";
 import BatchCardMenu from "../batchCardMenu/BatchCardMenu";
-import { batches } from "../../dummy data/batches";
 import { UserMeta } from "../../models/apiModels";
 import { Batch } from "../../../../skill-ed-web/src/supabaseServices/models";
 import { useNavigate } from "react-router-dom";
 
 export interface IBatch extends Batch {
   author: UserMeta;
+  academic_year:number;
+  semester:number
 }
 
-export default function Batches() {
+interface Props{
+  batches:IBatch[]
+}
+
+export default function Batches({batches}:Props) {
   const navigate = useNavigate();
   const [anchor_el, set_anchor_el] = useState<null | HTMLElement>(null);
   const [selected_batch, set_selected_batch] = useState<IBatch>({} as IBatch);

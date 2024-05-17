@@ -16,8 +16,8 @@ interface Props {
   values?: string[] | number[];
   min_width?: number;
   max_width?: number;
-  value:string | number;
-  onChange:(e:any)=>void
+  value: string | number;
+  onChange: (e: any) => void;
 }
 
 export default function SelectInput(props: Props) {
@@ -33,7 +33,7 @@ export default function SelectInput(props: Props) {
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
           IconComponent={KeyboardArrowDownIcon}
-          style={{background:"#FFF"}}
+          style={{ background: "#FFF", color: "#000" }}
         >
           {keys.map((key, index) => {
             return (
