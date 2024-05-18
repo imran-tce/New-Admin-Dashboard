@@ -1,25 +1,39 @@
+import { Button, Typography } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import { Form, Formik } from "formik";
 import React, { useMemo, useState } from "react";
-import useStyles from "./Courses.styles";
+import * as Yup from "yup";
+import {
+  Course,
+  UserMeta,
+} from "../../../../skill-ed-web/src/supabaseServices/models";
+import CoursesList from "../../components/courses/CoursesList";
+import RadioInput from "../../components/formComponents/RadioInput";
+import SelectInput from "../../components/formComponents/SelectInput";
+import TextInput from "../../components/formComponents/TextInput";
 import Header from "../../components/Header/Header";
+import {
+  COURSE_ACTIVENESS,
+  COURSE_TYPES,
+  SEMESTERS_LIST,
+} from "../../constants/AppConstants";
+import { courses_list } from "../../dummy data/courses";
+import { faculties } from "../../dummy data/faculties";
+import { user } from "../../dummy data/user";
+import SelectComponent from "../../shared/select/SelectInput";
 import { BasicTabPanel, BasicTabs } from "../../shared/tabs/BasicTabs";
-import Batches from "../../components/batches/Batches";
-import { batches } from "../../dummy data/batches";
-import SelectInput from "../../shared/select/SelectInput";
-import { Button } from "@mui/material";
+import useStyles from "./Courses.styles";
 
-const SEMESTERS_LIST = [
-  "Sem 1",
-  "Sem 2",
-  "Sem 3",
-  "Sem 4",
-  "Sem 5",
-  "Sem 6",
-  "Sem 7",
-  "Sem 8",
-];
-
-const COURSE_TYPES = ["Theory", "Practical"];
-const COURSE_ACTIVENESS = ["Active Courses", "Inactive Course"];
+export interface CourseTemp extends Course {
+  department: string;
+  author: UserMeta;
+  semester: number;
+  academic_year: number;
+  course_type: string;
+  expert_id: string;
+}
 
 export default function Courses() {
   const classes = useStyles();
@@ -29,19 +43,62 @@ export default function Courses() {
     COURSE_ACTIVENESS[0]
   );
 
+  const [create_course, set_create_course] = useState(false);
+  const [courses, set_courses] = useState<CourseTemp[]>(courses_list as any[]);
+
+  const initial_values = {
+    department: "",
+    id: "",
+    title: "",
+    code: "",
+    expert_id: "",
+    course_type: "",
+    semester: 1,
+  };
+
   const bread_crumbs = useMemo(() => {
     return {
       Courses: "/courses",
     };
   }, []);
 
+  const validationSchema = Yup.object().shape({
+    semester: Yup.string()
+      .required("Semester is required")
+      .min(1, "Semester cannot be negative or 0")
+      .max(8, "Semester cannot be more than 8"),
+    title: Yup.string()
+      .required("Title is required")
+      .test("no-whitespace", "Invalid input", (value: any) => {
+        return value && value.trim().length > 0;
+      })
+      .max(200, "Title must not be more than 200 characters"),
+    code: Yup.string().required("Code is required"),
+    expert_id: Yup.string().required("Please select the Subject expert"),
+    course_type: Yup.string().required("Type is required"),
+  });
+
   const handleChangeTab = (_event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
 
+  const handleSubmit = (values: any) => {
+    const new_course = {
+      department: values.department,
+      title: values.title,
+      code: values.code,
+      expert_id: values.expert_id,
+      course_type: values.course_type,
+      semester: values.semester,
+    } as CourseTemp;
+
+    set_courses((courses) => [...courses, new_course]);
+    set_create_course(false);
+  };
+
   return (
     <div className={classes.root}>
-      <Header title="Yearwise Batch details" bread_crumbs={bread_crumbs} />
+      <Header title="Courses" bread_crumbs={bread_crumbs} />
       <BasicTabs
         value={value}
         handleChangeTab={handleChangeTab}
@@ -49,27 +106,87 @@ export default function Courses() {
       />
 
       <div className={classes.filterContainer}>
-        <SelectInput
+        <SelectComponent
           value={course_type}
           onChange={(e) => set_course_type(e.target.value)}
           keys={COURSE_TYPES}
         />
-        <SelectInput
+        <SelectComponent
           value={course_activeness}
           onChange={(e) => set_course_activeness(e.target.value)}
           keys={COURSE_ACTIVENESS}
         />
 
-        <Button variant="contained" color="primary" sx={{height:40}} >
-            Create Subject
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{ height: 40 }}
+          onClick={() => set_create_course(true)}
+        >
+          Create Subject
         </Button>
       </div>
 
       <BasicTabPanel value={value} index={1}>
-        <Batches
-          batches={batches.filter((b) => b.semester === 1) as any[]}
-        />
+        <CoursesList courses={courses.filter((o) => o.semester === 1)} />
       </BasicTabPanel>
+
+      <Dialog
+        PaperProps={{ style: { padding: "1rem" } }}
+        fullWidth
+        open={create_course}
+      >
+        <DialogTitle>
+          <Typography variant="h4" color="black">
+            Create New Subject{" "}
+          </Typography>
+        </DialogTitle>
+        <DialogContent>
+          <Formik
+            initialValues={initial_values}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            <Form className={classes.courseForm}>
+              <TextInput
+                label="Department"
+                name="department"
+                value={user.department}
+                disabled
+              />
+              <TextInput name="semester" label="Semester" type="number" />
+              <TextInput name="title" label="Subject name" />
+              <TextInput name="code" label="Subject code" />
+              <SelectInput
+                name="expert_id"
+                label="Subject Expert"
+                keys={faculties.map((o) => o.personal_details.display_name)}
+                values={faculties.map((o) => o.personal_details.id)}
+              />
+
+              <RadioInput
+                name="course_type"
+                label="Subject Type"
+                options={COURSE_TYPES}
+              />
+
+              <div>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={() => set_create_course(false)}
+                  sx={{ mr: 3 }}
+                >
+                  Cancel
+                </Button>
+                <Button variant="contained" color="primary" type="submit">
+                  Submit
+                </Button>
+              </div>
+            </Form>
+          </Formik>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

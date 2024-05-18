@@ -4,9 +4,10 @@ import { get_time_zone_offset_date, getFormattedDate } from "../../../utils/util
 import useStyles from "./CourseCardMenu.styles";
 import { Menu, Typography } from "@mui/material";
 import { ICourse } from "../../../models/apiModels";
+import { CourseTemp } from "../../../pages/courses/Courses";
 
 interface IProp {
-  selected_course: ICourse;
+  selected_course: CourseTemp;
   anchorEl: any;
   callback: (anchorEl: null) => void;
 }
