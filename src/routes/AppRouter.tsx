@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import PrivateRoute from "./PrivateRoute";
-import Home from "../pages/home/Home";
+import BatchDetails from "../pages/batches/BatchDetails/BatchDetails";
+import YearWiseBatches from "../pages/batches/YearWiseBatches";
+import Courses from "../pages/courses/Courses";
+import CourseDetails from "../pages/courses/courseDetails/CourseDetails";
 import Faculties from "../pages/faculties/Faculties";
 import FacultyProfilePage from "../pages/faculties/profile/ProfilePage";
+import Home from "../pages/home/Home";
 import MentoringProjects from "../pages/mentors/projects/MentoringProjects";
-import YearWiseBatches from "../pages/batches/YearWiseBatches";
-import BatchDetails from "../pages/batches/BatchDetails/BatchDetails";
-import Courses from "../pages/courses/Courses";
+import PrivateRoute from "./PrivateRoute";
 
 export default function AppRouter() {
   return (
@@ -54,7 +55,7 @@ export default function AppRouter() {
         }
       />
 
-<Route
+      <Route
         path="/batches/:batchId"
         element={
           <PrivateRoute>
@@ -63,11 +64,20 @@ export default function AppRouter() {
         }
       />
 
-<Route
+      <Route
         path="/courses"
         element={
           <PrivateRoute>
             <Courses />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/courses/:courseId"
+        element={
+          <PrivateRoute>
+            <CourseDetails />
           </PrivateRoute>
         }
       />

@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import CourseCardMenu from "./courseCardMenu/CourseCardMenu";
 import { CourseTemp } from "../../pages/courses/Courses";
 
-
 interface Props {
   courses: CourseTemp[];
 }
@@ -29,9 +28,8 @@ export default function CoursesList({ courses }: Props) {
     navigate(`/courses/${id}`);
   };
 
-
   return (
-    <div style={{width:"100%", height:"100%"}} >
+    <div style={{ width: "100%", height: "100%" }}>
       <div
         style={{
           width: "100%",
@@ -60,8 +58,9 @@ export default function CoursesList({ courses }: Props) {
             >
               <CardMedia
                 component="img"
-                height="100%"
-                image="/card_default_image.svg"
+                width="380px"
+                height="180px"
+                image={course?.thumbnail || "/card_default_image.svg"}
                 alt="green iguana"
               />
               <div

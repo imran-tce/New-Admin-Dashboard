@@ -3,7 +3,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Form, Formik } from "formik";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import * as Yup from "yup";
 import {
   Course,
@@ -45,6 +45,15 @@ export default function Courses() {
 
   const [create_course, set_create_course] = useState(false);
   const [courses, set_courses] = useState<CourseTemp[]>(courses_list as any[]);
+
+  useEffect(() => {
+    let list = [...courses_list];
+    list = list.filter((o) => o.course_type === course_type);
+    if (course_activeness === COURSE_ACTIVENESS[1]) {
+      list = [];
+    }
+    set_courses(list as any);
+  }, [course_type, course_activeness]);
 
   const initial_values = {
     department: "",
@@ -128,7 +137,28 @@ export default function Courses() {
       </div>
 
       <BasicTabPanel value={value} index={1}>
-        <CoursesList courses={courses.filter((o) => o.semester === 1)} />
+        <CoursesList courses={courses} />
+      </BasicTabPanel>
+      <BasicTabPanel value={value} index={2}>
+        <CoursesList courses={courses} />
+      </BasicTabPanel>
+      <BasicTabPanel value={value} index={3}>
+        <CoursesList courses={courses} />
+      </BasicTabPanel>
+      <BasicTabPanel value={value} index={4}>
+        <CoursesList courses={courses} />
+      </BasicTabPanel>
+      <BasicTabPanel value={value} index={5}>
+        <CoursesList courses={courses} />
+      </BasicTabPanel>
+      <BasicTabPanel value={value} index={6}>
+        <CoursesList courses={courses} />
+      </BasicTabPanel>
+      <BasicTabPanel value={value} index={7}>
+        <CoursesList courses={courses} />
+      </BasicTabPanel>
+      <BasicTabPanel value={value} index={8}>
+        <CoursesList courses={courses} />
       </BasicTabPanel>
 
       <Dialog
