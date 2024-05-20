@@ -35,6 +35,7 @@ export interface CourseTemp extends Course {
   expert_id: string;
   capacity:number;
   nba_code:string;
+  co_attainment:any
 }
 
 export default function Courses() {

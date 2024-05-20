@@ -69,26 +69,12 @@ export const courses_list = [
     course_type: "Theory",
     capacity: 75,
     nba_code:"C301",
-    co_targets:{
-      co_1:1.8,
-      co_2:1.8,
-      co_3:1.8,
-      co_4:1.8,
-      co_5:1.8
-    },
-    co_indirect:{
-      co_1:1.8,
-      co_2:0,
-      co_3:1.8,
-      co_4:1.2,
-      co_5:1.8
-    },
-    co_direct:{
-      co_1:3.0,
-      co_2:0.0,
-      co_3:3.0,
-      co_4:0.0,
-      co_5:0.0
+    co_attainment:{
+      co_1:3,
+      co_2:2.5,
+      co_3:1,
+      co_4:3,
+      co_5:2.8
     },
   },
   {
@@ -171,7 +157,14 @@ export const courses_list = [
     },
     course_type: "Theory",
     "capacity":85,
-    nba_code:"C302"
+    nba_code:"C302",
+    co_attainment:{
+      co_1:2.7,
+      co_2:2.5,
+      co_3:1.9,
+      co_4:2.8,
+      co_5:2.4
+    },
   },
   {
     id: "5b4acec4-6b9e-404c-8991-fbf6032166f7",
@@ -259,7 +252,14 @@ export const courses_list = [
     },
     course_type: "Theory",
     "capacity":80,
-    nba_code:"C303"
+    nba_code:"C303",
+    co_attainment:{
+      co_1:1.5,
+      co_2:2.9,
+      co_3:3,
+      co_4:2.9,
+      co_5:2.4
+    },
   },
   {
     id: "3a16aa3e-bac5-418f-8513-576defb1dcd6",
@@ -341,7 +341,14 @@ export const courses_list = [
     },
     course_type: "Theory",
     "capacity":78,
-    nba_code:"C304"
+    nba_code:"C304",
+    co_attainment:{
+      co_1:1.8,
+      co_2:2.7,
+      co_3:2.4,
+      co_4:2.9,
+      co_5:1.8
+    },
   },
   {
     id: "88c7882e-be51-4763-b55e-2b61b05ffa7a",
@@ -424,7 +431,14 @@ export const courses_list = [
     },
     course_type: "Theory",
     "capacity":68,
-    nba_code:"C305"
+    nba_code:"C305",
+    co_attainment:{
+      co_1:2.7,
+      co_2:2.4,
+      co_3:1.9,
+      co_4:3,
+      co_5:2.8
+    },
   },
   {
     id: "7deec107-d2d3-40a1-88b0-fe4a794165d4",
@@ -478,7 +492,7 @@ export const courses_list = [
       "Bridge Course is a journey of young tech enthusiasts from different backgrounds coming together to learn engineering in a fun-filled way. The contents are designed with challenges and hands-on learning throughout the course. Students are seen to come out of their comfort zone and work with enthusiasts from different backgrounds to solve challenges by thinking out of the box. The course aims at familiarizing new concepts of engineering under the guidance of the seniors and faculties.",
     course_certificate_logo: "",
     academic_year: 2,
-    semester: 3,
+    semester: 1,
     author: {
       id: "ed15b629-6e69-46b9-9b14-ba509a2fa944",
       serial_id: 4722,
@@ -499,7 +513,14 @@ export const courses_list = [
     },
     course_type: "Theory",
     "capacity":77,
-    nba_code:"C306"
+    nba_code:"C306",
+    co_attainment:{
+      co_1:2.2,
+      co_2:2.7,
+      co_3:1.1,
+      co_4:2.1,
+      co_5:3
+    },
   },
   {
     id: "f99e8d8f-798e-4f23-92ef-4aeabf1960bb",
@@ -547,7 +568,7 @@ export const courses_list = [
       "Participants will learn how to empathize with users, define problems, generate creative solutions, and test and refine ideas. The course covers key design thinking methods and tools and emphasizes a hands-on, iterative approach. By the end of the course, students will have a deeper understanding of the design thinking process and be able to apply its principles to a range of challenges.",
     course_certificate_logo: "",
     academic_year: 2,
-    semester: 3,
+    semester: 1,
     author: {
       id: "7d5eaedb-c4ba-42f4-9766-ee8babcba156",
       serial_id: 4704,
@@ -572,7 +593,14 @@ export const courses_list = [
     },
     course_type: "Theory",
     "capacity":77,
-    nba_code:"C307"
+    nba_code:"C307",
+    co_attainment:{
+      co_1:2.4,
+      co_2:2.1,
+      co_3:3,
+      co_4:2.8,
+      co_5:2.2
+    },
   },
 
 ];

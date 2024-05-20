@@ -36,14 +36,19 @@ const useStyles = makeStyles((theme: Theme) =>
       gridTemplateColumns: "repeat(3,1fr)",
       gridTemplateRows: "repeat(11,175px)",
       gap: "1rem",
+      background: "#FFF",
+      "& >div": {
+        background: "#F8F8F8",
+        borderRadius:"10px"
+      },
     },
 
     gridItem1: {
       border: "1px solid #000",
       gridColumn: "1/3",
       gridRow: "1/3",
-      background:"#F8F8F8",
-      position:"relative"
+      background: "#F8F8F8",
+      position: "relative",
     },
     gridItem2: {
       border: "1px solid #000",
