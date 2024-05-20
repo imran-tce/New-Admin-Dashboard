@@ -22,7 +22,7 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "top" as const,
+      position: "right" as const,
     },
     title: {
       //   display: true,
@@ -57,8 +57,8 @@ interface Props {
 
 export default function VerticalBarChart({ chart_data }: Props) {
   return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <Bar options={options} data={chart_data} />
+    <div style={{ width: "100%", height: "100%", border:"1px solid #000" }}>
+      <Bar options={options} data={chart_data} width={700}/>
     </div>
   );
 }
