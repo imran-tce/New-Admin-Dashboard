@@ -171,6 +171,7 @@ const theme = createTheme({
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
       fontWeight: 500,
       lineHeight: "initial",
+      color:"#000"
     },
     BR20: {
       textAlign: "left",
@@ -208,6 +209,7 @@ const theme = createTheme({
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
       fontWeight: 600,
       lineHeight: "initial",
+      color:"#000"
     },
     BM12: {
       textAlign: "left",
@@ -215,6 +217,7 @@ const theme = createTheme({
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
       fontWeight: 500,
       lineHeight: "initial",
+      color:"#000"
     },
     BR12: {
       textAlign: "left",
