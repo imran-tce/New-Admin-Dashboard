@@ -10,6 +10,7 @@ import TrlStatus from "../../components/home/TrlStatus";
 import AcademicStatus from "../../components/home/AcademicStatus";
 import EventsProgress from "../../components/home/eventsProgress/EventsProgress";
 import ProjectGrants from "../../components/home/projectGrants/ProjectGrants";
+import StudentSkills from "../../components/home/studentSkills/StudentSkills";
 
 const GRID_ITEM_1 = ["Academic", "TRL Status"];
 
@@ -81,7 +82,9 @@ export default function Home() {
 
           <div className={classes.gridItem5}>Item 5</div>
           <div className={classes.gridItem6}>Item 6</div>
-          <div className={classes.gridItem7}>Item 7</div>
+          <div className={classes.gridItem7}>
+            <StudentSkills />
+          </div>
           <div className={classes.gridItem8}>Item 8</div>
           <div className={classes.gridItem9}>Item 9</div>
           <div className={classes.gridItem10}>Item 10</div>

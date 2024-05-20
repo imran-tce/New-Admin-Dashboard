@@ -1,0 +1,30 @@
+export const student_skills=[
+    {
+        skill:"JavaScript",
+        value:80
+    },
+    {
+        skill:"Java",
+        value:75
+    },
+    {
+        skill:"PHP",
+        value:67
+    },
+    {
+        skill:"C#",
+        value:59
+    },
+    {
+        skill:"React",
+        value:89
+    },
+    {
+        skill:"NodeJs",
+        value:87
+    },
+    {
+        skill:"Postgres",
+        value:61
+    },
+]

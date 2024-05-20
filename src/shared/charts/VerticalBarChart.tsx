@@ -31,23 +31,15 @@ export const options = {
   },
   options: {
     scales: {
-      categoryPercentage: 0.2,
-      xAxes: [
-        {
-          gridLines: {
-            color: "red", // Transparent black
-          },
-        },
-      ],
-      yAxes: [
-        {
-          gridLines: {
-            color: "red", // Transparent black
-          },
-        },
-      ],
+      y:{
+        title:{
+          display:true,
+          text:"Subject"
+        }
+      }
     },
     barThickness: 12,
+    
   },
 };
 
@@ -57,7 +49,7 @@ interface Props {
 
 export default function VerticalBarChart({ chart_data }: Props) {
   return (
-    <div style={{ width: "100%", height: "100%", border:"1px solid #000" }}>
+    <div style={{ width: "100%", height: "100%", border:"1px solid #000",padding:"1rem" }}>
       <Bar options={options} data={chart_data} width={700}/>
     </div>
   );

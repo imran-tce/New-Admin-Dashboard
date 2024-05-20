@@ -38,6 +38,9 @@ const data = {
       borderRadius: Number.MAX_VALUE,
       borderSkipped: false,
       barThickness: 12,
+      barPercentage: 1,
+      categoryPercentage: 0.5,
+      
     },
     {
       label: "CIE",
