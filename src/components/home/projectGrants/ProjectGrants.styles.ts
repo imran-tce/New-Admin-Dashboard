@@ -30,12 +30,23 @@ const useStyles = makeStyles((theme:Theme) =>
         justifyContent:"space-between",
         padding:"1rem 2rem",
         borderRadius:"10px",
-        background:"#000",
+        background:"#F0F0F0",
         height:'80px'
     },
     progressBar:{
         width:"55px",
         height:"55px",
+    },
+    totalGrant:{
+        width:"100%",
+        padding:"1rem 2rem",
+        display:"flex",
+        flexDirection:"column",
+        justifyContent:"center",
+        alignItems:"center",
+        borderRadius:"10px",
+        background:"#F0F0F0",
+        height:'80px'
     }
   }),
 );

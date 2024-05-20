@@ -20,7 +20,7 @@ export default function EventsProgress() {
           return (
             <div key={event.id} className={classes.progressCard}>
               <div>
-                <Typography variant="BSb14" color="#FFF" component="p">
+                <Typography variant="BSb14" color="#FFF" component="p" sx={{mb:1}} >
                   {event.title}
                 </Typography>
                 <Typography variant="BR14" color="#9E9E9E" component="p">

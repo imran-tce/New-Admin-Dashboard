@@ -129,6 +129,7 @@ const theme = createTheme({
       fontFamily:["SF Pro Display Bold","sans-serif"].join(","),
       fontWeight: 700, // Set heading 3 font weight
       lineHeight: "24px", // Set heading 3 line height
+      color:"#000"
     },
     h4: {
       textAlign: "left",
