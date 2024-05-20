@@ -8,6 +8,7 @@ import FacultyProfilePage from "../pages/faculties/profile/ProfilePage";
 import Home from "../pages/home/Home";
 import MentoringProjects from "../pages/mentors/projects/MentoringProjects";
 import PrivateRoute from "./PrivateRoute";
+import CourseOutcomeAttainments from "../pages/co-attainments/CourseOutcomeAttainments";
 
 export default function AppRouter() {
   return (
@@ -78,6 +79,15 @@ export default function AppRouter() {
         element={
           <PrivateRoute>
             <CourseDetails />
+          </PrivateRoute>
+        }
+      />
+
+<Route
+        path="/course-outcomes"
+        element={
+          <PrivateRoute>
+            <CourseOutcomeAttainments />
           </PrivateRoute>
         }
       />
