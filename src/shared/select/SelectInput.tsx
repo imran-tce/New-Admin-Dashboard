@@ -11,7 +11,7 @@ interface Props {
   label?: string;
   keys: string[] | number[];
   values?: string[] | number[];
-  min_width?: number;
+  min_width?: number | string;
   max_width?: number;
   value: string | number;
   onChange: (e: any) => void;

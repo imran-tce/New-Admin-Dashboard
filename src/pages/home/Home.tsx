@@ -14,6 +14,7 @@ import StudentSkills from "../../components/home/studentSkills/StudentSkills";
 import CourseAttainment from "../../components/home/courseAttainment/CourseAttainment";
 import StudentActivities from "../../components/home/studentActivities/StudentActivities";
 import FacultyRatings from "../../components/home/facultyRatings/FacultyRatings";
+import StudentAchievements from "../../components/home/studentAchievements/StudentAchievements";
 
 const GRID_ITEM_1 = ["Academic", "TRL Status"];
 
@@ -83,7 +84,9 @@ export default function Home() {
             <ProjectGrants />
           </div>
 
-          <div className={classes.gridItem5}>Item 5</div>
+          <div className={classes.gridItem5}>
+            <StudentAchievements />
+          </div>
           <div className={classes.gridItem6}>
             <CourseAttainment />
           </div>

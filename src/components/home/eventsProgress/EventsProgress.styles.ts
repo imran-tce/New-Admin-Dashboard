@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme:Theme) =>
   createStyles({
     root: {
         margin:0,
-        height:"525px",
+        height:"100%",
         overflow:"hidden",
         padding:"1rem"
     },
