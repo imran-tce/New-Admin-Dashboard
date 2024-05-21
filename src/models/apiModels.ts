@@ -162,7 +162,7 @@ export interface CalendarEvent {
   description: string;
   type: string;
   location: string;
-  meta_data: RowMetaData;
+  meta_data?: RowMetaData;
 }
 
 export interface Rubric {

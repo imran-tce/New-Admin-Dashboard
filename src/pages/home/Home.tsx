@@ -15,6 +15,7 @@ import CourseAttainment from "../../components/home/courseAttainment/CourseAttai
 import StudentActivities from "../../components/home/studentActivities/StudentActivities";
 import FacultyRatings from "../../components/home/facultyRatings/FacultyRatings";
 import StudentAchievements from "../../components/home/studentAchievements/StudentAchievements";
+import Calendar from "../calendar/Calendar";
 
 const GRID_ITEM_1 = ["Academic", "TRL Status"];
 
@@ -93,7 +94,9 @@ export default function Home() {
           <div className={classes.gridItem7}>
             <StudentSkills />
           </div>
-          <div className={classes.gridItem8}>Item 8</div>
+          <div className={classes.gridItem8}>
+            <Calendar />
+          </div>
           <div className={classes.gridItem9}>
             <FacultyRatings />
           </div>

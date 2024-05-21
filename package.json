@@ -34,7 +34,10 @@
     "styled-components": "^6.1.11",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "react-indiana-drag-scroll": "^2.2.0",
+    "date-fns": "^2.29.3",
+    "react-lottie": "^1.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -64,6 +67,8 @@
     "@types/faker": "5.5.9",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
-    "typescript": "4.9.4"
+    "typescript": "4.9.4",
+    "@types/date-fns": "^2.6.0",
+    "@types/react-lottie": "^1.2.6"
   }
 }
