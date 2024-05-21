@@ -16,13 +16,14 @@ const useStyles = makeStyles((theme: Theme) =>
       "& >div": {
         background: "#F8F8F8",
         borderRadius: "10px",
-        border: "1px solid #000",
         padding:"1rem"
       },
     },
     gridItem1: {
       gridColumn: "1/2",
       gridRow: "1/7",
+      height:"100%",
+      overflow:"hidden"
     },
     gridItem2: {
       gridColumn: "2/5",
@@ -59,6 +60,26 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     criteria:{
       padding:"1rem 0"
+    },
+    facultiesContainer:{
+      marginTop:"1rem",
+      display:"flex",
+      flexDirection:"column",
+      alinItems:"flex-start",
+      justifyContent:"flex-start",
+      gap:"1.5rem",
+      height:"100%",
+      overflow:"auto"
+    },
+    facultyCard:{
+      display:"flex",
+      alignItems:"flex-start",
+      gap:"1rem",
+      cursor:"pointer",
+      "& .MuiAvatar-root":{
+        height:"30px",
+        width:"30px"
+      }
     }
   })
 );

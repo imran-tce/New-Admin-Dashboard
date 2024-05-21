@@ -82,11 +82,12 @@ export const faculty_ratings = [
   },
   {
     id:10,
-    name: "Praveen Nayak",
+    name: "Praveen Raj",
     employee_id: "CSE12345678",
     date_of_join: "Jan 1, 2020",
     subject: "Physics",
     class: ["CSE-A - 1st year", "CSE-C - 1st year"],
     rating: 4.7,
   },
+  
 ];
