@@ -4,7 +4,8 @@ import { createStyles, makeStyles } from '@mui/styles';
 const useStyles = makeStyles((theme:Theme) =>
   createStyles({
     root: {
-      position:'relative'
+      position:'relative',
+      padding:"1rem"
     },
     headerContainer:{
       width:"100%",

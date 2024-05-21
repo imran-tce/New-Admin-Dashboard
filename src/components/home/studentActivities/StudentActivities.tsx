@@ -110,8 +110,8 @@ export default function StudentActivities() {
 
   return (
     <div className={classes.root}>
-            <div className={classes.headerContainer}>
-        <Typography variant="BM20">Event Progress</Typography>
+      <div className={classes.headerContainer}>
+        <Typography variant="BM20">Student Activity Status</Typography>
       </div>
       <div style={{ position: "absolute", right: 10, top: 10 }}>
         <SelectInput
@@ -129,7 +129,12 @@ export default function StudentActivities() {
           padding: "1rem",
         }}
       >
-        <Bar options={options} data={data} height={270} style={{padding:"2rem", marginTop:"2rem"}} />
+        <Bar
+          options={options}
+          data={data}
+          height={250}
+          style={{ padding: "2rem", marginTop: "2rem" }}
+        />
       </div>
     </div>
   );
