@@ -9,8 +9,8 @@ const TAB_LABELS = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
 
 export default function YearWiseBatches() {
   const classes = useStyles();
-  const [value, setValue] = useState(1);
-
+  const [value, setValue] = useState(1)
+;
   const bread_crumbs = useMemo(() => {
     return {
       "yearwise batch details": "/batches",

@@ -110,6 +110,7 @@ const theme = createTheme({
     // fontSize: 16,
 
     h1: {
+      display:"block",
       textAlign: "left",
       fontFamily:["SF Pro Display Semibold","sans-serif"].join(","),
       fontSize: "36px", // Set heading 1 font size
@@ -117,6 +118,7 @@ const theme = createTheme({
       lineHeight: "30px", // Set heading 1 line height
     },
     h2: {
+      display:"block",
       textAlign: "left",
       fontSize: "30px", // Set heading 2 font size
       fontFamily:["SF Pro Display Semibold","sans-serif"].join(","),
@@ -124,6 +126,7 @@ const theme = createTheme({
       lineHeight: "24px", // Set heading 2 line height
     },
     h3: {
+      display:"block",
       textAlign: "left",
       fontSize: "30px", // Set heading 3 font size
       fontFamily:["SF Pro Display Bold","sans-serif"].join(","),
@@ -132,6 +135,7 @@ const theme = createTheme({
       color:"#000"
     },
     h4: {
+      display:"block",
       textAlign: "left",
       fontSize: "24px", // Set heading 4 font size
       fontFamily:["SF Pro Display Semibold","sans-serif"].join(","),
@@ -139,6 +143,7 @@ const theme = createTheme({
       lineHeight: "20px", // Set heading 4 line height
     },
     h5: {
+      display:"block",
       textAlign: "left",
       fontSize: "16px", // Set heading 5 font size
       fontFamily:["SF Pro Display Semibold","sans-serif"].join(","),
@@ -146,6 +151,7 @@ const theme = createTheme({
       lineHeight: "20px", // Set heading 5 line height
     },
     subtitle1: {
+      display:"block",
       textAlign: "left",
       fontSize: "16px", // Set subtitle 1 font size
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
@@ -153,6 +159,7 @@ const theme = createTheme({
       lineHeight: "initial", // Set subtitle 1 line height
     },
     subtitle2: {
+      display:"block",
       textAlign: "left",
       fontFamily:["SF Pro Display Semibold","sans-serif"].join(","),
       fontSize: "14px", // Set subtitle 2 font size
@@ -160,6 +167,7 @@ const theme = createTheme({
       lineHeight: "initial", // Set subtitle 2 line height
     },
     StM13: {
+      display:"block",
       textAlign: "left",
       fontSize: "13px",
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
@@ -167,6 +175,7 @@ const theme = createTheme({
       lineHeight: "initial",
     },
     BM20: {
+      display:"block",
       textAlign: "left",
       fontSize: "20px",
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
@@ -175,6 +184,7 @@ const theme = createTheme({
       color:"#000"
     },
     BR20: {
+      display:"block",
       textAlign: "left",
       fontSize: "20px",
       fontFamily:["SF Pro Display Regular","sans-serif"].join(","),
@@ -182,6 +192,7 @@ const theme = createTheme({
       lineHeight: "initial",
     },
     BR16: {
+      display:"block",
       textAlign: "left",
       fontSize: "16px",
       fontFamily:["SF Pro Display Regular","sans-serif"].join(","),
@@ -189,21 +200,25 @@ const theme = createTheme({
       lineHeight: "initial",
     },
     BR14: {
+      display:"block",
       textAlign: "left",
       fontSize: "14px",
       fontFamily:["SF Pro Display Regular","sans-serif"].join(","),
       fontWeight: 400,
       lineHeight: "initial",
+      color:"#000"
     },
  
  
     BM14: {
+      display:"block",
       fontSize: "14px",
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
       fontWeight: 500,
       lineHeight: "initial",
     },
     BSb14: {
+      display:"block",
       textAlign: "left",
       fontSize: "14px",
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
@@ -212,6 +227,7 @@ const theme = createTheme({
       color:"#000"
     },
     BM12: {
+      display:"block",
       fontSize: "12px",
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
       fontWeight: 500,
@@ -219,6 +235,7 @@ const theme = createTheme({
       color:"#000"
     },
     BR12: {
+      display:"block",
       textAlign: "left",
       fontSize: "12px",
       fontFamily:["SF Pro Display Regular","sans-serif"].join(","),
@@ -226,6 +243,7 @@ const theme = createTheme({
       lineHeight: "initial",
     },
     button: {
+      display:"block",
       fontSize: "1rem", // Set button font size
       fontWeight: 500, // Set button font weight
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
@@ -233,6 +251,7 @@ const theme = createTheme({
       textTransform: "uppercase", // Uppercase button text
     },
     caption: {
+      display:"block",
       textAlign: "left",
       fontSize: "12px",
       fontFamily:["SF Pro Display Regular","sans-serif"].join(","),
@@ -240,6 +259,7 @@ const theme = createTheme({
       lineHeight: "initial",
     },
     overline: {
+      display:"block",
       fontSize: "0.625rem", // Set overline font size
       fontFamily:["SF Pro Display Regular","sans-serif"].join(","),
       fontWeight: 400, // Set overline font weight
