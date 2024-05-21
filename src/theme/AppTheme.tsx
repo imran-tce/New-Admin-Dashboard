@@ -198,7 +198,6 @@ const theme = createTheme({
  
  
     BM14: {
-      textAlign: "left",
       fontSize: "14px",
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
       fontWeight: 500,
@@ -213,7 +212,6 @@ const theme = createTheme({
       color:"#000"
     },
     BM12: {
-      textAlign: "left",
       fontSize: "12px",
       fontFamily:["SF Pro Display Medium","sans-serif"].join(","),
       fontWeight: 500,
