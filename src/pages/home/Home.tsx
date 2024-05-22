@@ -5,7 +5,6 @@ import { ROLES } from "../../constants/AppConstants";
 import SearchBar from "../../shared/searchBar/SearchBar";
 import { Avatar, Typography } from "@mui/material";
 import { user } from "../../dummy data/user";
-import Text from "../../shared/texts/Text";
 import TrlStatus from "../../components/home/TrlStatus";
 import AcademicStatus from "../../components/home/AcademicStatus";
 import EventsProgress from "../../components/home/eventsProgress/EventsProgress";
@@ -46,19 +45,24 @@ export default function Home() {
   return (
     <div className={classes.root}>
       <div className={classes.headerContainer}>
-        <SearchBar search_text={"wdwdw"} handleChange={undefined} />
+        {/* <SearchBar search_text={"wdwdw"} handleChange={undefined} /> */}
         <div className={classes.headerUserDetails}>
           <SelectInput keys={ROLES} value={role} onChange={handleRoleChange} />
           <Avatar src={user.photo_url} alt="" />
-          <Text variant="body6">{user.name}</Text>
+          <Typography variant="BSb14" sx={{ fontSize: "1rem" }}>
+            {user.name}
+          </Typography>
         </div>
       </div>
 
       <div>
-        <h2>{user.name}</h2>
-        <Text variant="body3" color="#626A79">
+        <div style={{margin:"1rem 0 2rem 0" }} >
+        <Typography variant="h1">{user.name}</Typography>
+        <Typography variant="BR16" color="#626A79">
           {formatDate(new Date())} | {user.department}{" "}
-        </Text>
+        </Typography>
+        </div>
+        
         <div className={classes.gridContainer}>
           <div className={classes.gridItem1}>
             <div style={{ position: "absolute", left: 5, top: 5 }}>

@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     headerUserDetails: {
       gridColumn: "3/4",
-      gap: "0.5rem",
+      gap: "1rem",
       display: "flex",
       alignItems: "center",
       alignSelf: "center",

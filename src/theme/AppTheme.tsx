@@ -116,6 +116,7 @@ const theme = createTheme({
       fontSize: "36px", // Set heading 1 font size
       fontWeight: 600, // Set heading 1 font weight
       lineHeight: "30px", // Set heading 1 line height
+      color:"#000"
     },
     h2: {
       display:"block",
