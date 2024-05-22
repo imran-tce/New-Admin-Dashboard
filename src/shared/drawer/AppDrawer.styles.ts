@@ -1,29 +1,33 @@
-import { makeStyles , Theme } from "@material-ui/core";
+import { makeStyles } from "@mui/styles";
 
-const drawerWidth = 240;
+const drawerWidth = "90px";
+const primary = "#050418";
+const secondary = "#FDC20F";
+const open_drawer_width="300px"
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   drawer: {
     width: drawerWidth,
     height: "100%",
     flexShrink: 1,
   },
+
   drawerOpen: {
-    background: theme.palette.primary.main,
-    color: "#FBFBFB",
-    width: drawerWidth,
+    background: "red",
+    color: "#fff",
+    width: open_drawer_width,
     height: "100%",
     transition: "all 0.5s ease-in-out",
     zIndex: 20,
     overflow: "hidden",
   },
   drawerClose: {
-    background: theme.palette.primary.main,
-    color: "#FBFBFB",
+    background: primary,
+    color: "#fff",
     position: "fixed",
     transition: "all 0.5s ease-in-out",
     overflowX: "hidden",
-    width: theme.spacing(9) + 1,
+    width: drawerWidth,
     height: "100%",
     zIndex: 20,
   },
@@ -32,9 +36,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "row",
     marginBottom: "0.5rem",
     alignItems: "center",
+    "& .MuiAvatar-root": {
+      backgroundColor: "inherit",
+    },
   },
   backdrop: {
-    width: "100hw",
+    width: "100%",
     height: "100vh",
     position: "fixed",
     top: 0,
@@ -49,20 +56,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "none",
   },
   listItem: {
-    "&.MuiAvatar-colorDefault": {
-      backgroundColor: theme.palette.primary.main,
-    },
-    "& > div": {
-      backgroundColor: theme.palette.primary.main,
-    },
     "& svg": {
       fill: "none",
       stroke: "#fff",
     },
     "&:hover": {
       "& div": {
-        color: theme.palette.secondary.main,
-        backgroundColor: theme.palette.secondary.main,
+        color: secondary,
+        backgroundColor: secondary,
       },
       "& svg": {
         fill: "none",
@@ -81,13 +82,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: "#fff",
     cursor: "pointer",
   },
-  [theme.breakpoints.down("sm")]: {
-    drawerClose: {
-      width: 0,
-    },
-    mobile: {
-      display: "block",
-    },
+  logo: {
+    alignSelf: "flex-start",
+    padding: "0.8rem 0 0 1rem",
+    marginBottom: "1rem",
   },
 }));
 

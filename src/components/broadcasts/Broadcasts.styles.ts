@@ -27,12 +27,9 @@ const useStyles = makeStyles((theme: Theme) =>
         height: "30px",
       },
     },
-    drawer:{
-        
-    },
     formContainer:{
         width:"40%",
-        padding:"3rem"
+        padding:"3rem",
     },
     form:{
         overflow:"hidden",

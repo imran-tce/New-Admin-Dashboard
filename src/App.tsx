@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { AppDrawer } from "./shared/drawer/AppDrawer";
+import NavigationPanel from "./shared/drawer/AppDrawer";
 import AppRouter from "./routes/AppRouter";
 import { BrowserRouter } from "react-router-dom";
 import theme from "./theme/AppTheme";
@@ -27,6 +27,7 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
+      {/* <NavigationPanel /> */}
         <div
           style={{
             boxSizing: "border-box",
@@ -41,7 +42,7 @@ function App() {
             overflow: "hidden",
           }}
         >
-          {/* <div
+           <div
             style={{
               position: "absolute",
               left: 0,
@@ -52,7 +53,7 @@ function App() {
             }}
           >
             .
-          </div> */}
+          </div> 
           {/* <AppDrawer
             isDrawerOpen={isDrawerOpen}
             onDrawerToggle={handleDrawerToggle}
@@ -60,6 +61,8 @@ function App() {
             closeDrawer={closeDrawer}
             contents={[]}
           /> */}
+
+   
 
           <div
             style={{

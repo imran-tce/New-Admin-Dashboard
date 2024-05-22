@@ -1,141 +1,265 @@
+import { Avatar, Theme, Typography } from "@mui/material";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import { makeStyles } from "@mui/styles";
+import { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
-  Avatar,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  makeStyles,
-  Toolbar,
-  Typography,
-  withStyles,
-} from "@mui/material";
+  BookOpenIcon,
+  EventsIcon,
+  GroupIcon,
+  HomeIcon,
+  InternshipIcon,
+  LogoutIcon,
+  ProjectsIcon1,
+} from "../../assets/AppDrawerIcons";
 import useStyles from "./AppDrawer.styles";
-import { Link } from "react-router-dom";
-import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
-import MuiDrawer from '@mui/material/Drawer';
+// import {
+//   BookOpenIcon,
+//   DiscussionIcon,
+//   EventsIcon,
+//   GroupIcon,
+//   HomeIcon,
+//   InternshipIcon,
+//   LogoutIcon,
+//   ProjectsIcon1,
+// } from "../../utils/AppDrawerIcons";
 
-const drawerWidth = 240;
+const collapsedWidth = 80; // Adjust as per your requirement
+const drawerWidth = 260;
 
-interface AppDrawerProps {
-  isDrawerOpen: boolean;
-  onDrawerToggle: () => void;
-  openDrawer: () => void;
-  closeDrawer: () => void;
-  contents: any[];
-}
-
-interface DrawerContents {
-  title: string;
-  link: string;
-  icon: JSX.Element;
-}
-
-export function AppDrawer(props: AppDrawerProps) {
+const NavigationPanel = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(true);
+  const location = useLocation();
 
-  console.log("props", props.isDrawerOpen)
+  const content: any[] = [
+    {
+      title: "Home",
+      link: "/",
+      // icon: <BoxIcon width={"42"} height={"42"} color={location.pathname === "/" ? "secondary" : "white"} />,
+      icon: (
+        <HomeIcon
+          color={location.pathname === "/" ? "secondary" : "white"}
+          strokeWidth={location.pathname === "/" ? 3 : 1}
+        />
+      ),
+    },
+    {
+      title: "Courses",
+      link: "/courses",
+      // icon: (
+      //   <BoxIcon width={"42"} height={"42"} color={location.pathname.startsWith("/courses") ? "secondary" : "white"} />
+      // ),
+      icon: (
+        <BookOpenIcon
+          color={
+            location.pathname.startsWith("/courses") ? "secondary" : "white"
+          }
+          strokeWidth={location.pathname.startsWith("/learn") ? 3 : 1}
+        />
+      ),
+    },
+    {
+      title: "Problem\nStatements",
+      link: "/problem-statements",
+      // icon: (
+      //   <BoxIcon
+      //     width={"42"}
+      //     height={"42"}
+      //     color={location.pathname.startsWith("/problem-statements") ? "secondary" : "white"}
+      //   />
+      // ),
+      icon: (
+        <GroupIcon
+          color={
+            location.pathname.startsWith("/problem-statements")
+              ? "secondary"
+              : "white"
+          }
+          strokeWidth={
+            location.pathname.startsWith("/problem-statements") ? 2 : 0.7
+          }
+        />
+      ),
+    },
+    {
+      title: "Events",
+      link: "/events",
+      // icon: (
+      //   <BoxIcon width={"42"} height={"42"} color={location.pathname.startsWith("/events") ? "secondary" : "white"} />
+      // ),
+      icon: (
+        <EventsIcon
+          color={
+            location.pathname.startsWith("/events") ? "secondary" : "white"
+          }
+          strokeWidth={location.pathname.startsWith("/events") ? 1.5 : 0.6}
+        />
+      ),
+    },
+    {
+      title: "Projects",
+      link: "/projects",
+      // icon: (
+      //   <BoxIcon
+      //     width={"42"}
+      //     height={"42"}
+      //     color={location.pathname.startsWith("/projects") ? "secondary" : "white"}
+      //   />
+      // ),
+      icon: (
+        <ProjectsIcon1
+          color={
+            location.pathname.startsWith("/projects") ? "secondary" : "white"
+          }
+          strokeWidth={location.pathname.startsWith("/projects") ? 0.8 : 0}
+        />
+      ),
+    },
+    {
+      title: "Internships",
+      link: "/internships",
+      // icon: (
+      //   <BoxIcon
+      //     width={"42"}
+      //     height={"42"}
+      //     color={location.pathname.startsWith("/internships") ? "secondary" : "white"}
+      //   />
+      // ),
+      icon: (
+        <InternshipIcon
+          color={
+            location.pathname.startsWith("/internships") ? "secondary" : "white"
+          }
+          strokeWidth={location.pathname.startsWith("/internships") ? 1.1 : 0.5}
+        />
+      ),
+    },
+    // {
+    //   title: "Discussion Room",
+    //   link: "/discussion-room",
+    //   // icon: (
+    //   //   <BoxIcon
+    //   //     width={"42"}
+    //   //     height={"42"}
+    //   //     color={location.pathname.startsWith("/discussion-room") ? "secondary" : "white"}
+    //   //   />
+    //   // ),
 
-  const openedMixin = (theme: Theme): CSSObject => ({
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    background:theme.palette.primary.main,
-    overflowX: 'hidden',
-  });
+    //   icon: (
+    //     <DiscussionIcon
+    //       color={location.pathname.startsWith("/discussion-room") ? "secondary" : "white"}
+    //       strokeWidth={location.pathname.startsWith("/discussion-room") ? 1.1 : 0.5}
+    //     />
+    //   ),
+    // },
+  ];
 
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
 
-const closedMixin = (theme: Theme): CSSObject => ({
-  transition: theme.transitions.create('width', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: 'hidden',
-  width:"99px",
-  background:theme.palette.primary.main,
-});
-
-  
-
-  const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-    ({ theme, open }) => ({
-      width: drawerWidth,
-      flexShrink: 0,
-      transition: "all 0.5s ease-in-out",
-      whiteSpace: 'nowrap',
-      boxSizing: 'border-box',
-      ...(open && {
-        ...openedMixin(theme),
-        '& .MuiDrawer-paper': openedMixin(theme),
-      }),
-      ...(!open && {
-        ...closedMixin(theme),
-        '& .MuiDrawer-paper': closedMixin(theme),
-      }),
-    }),
-  );
-  
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+  console.log("oppen", open);
 
   return (
     <>
-      <Drawer
-        variant="permanent"
-        // className={`${classes.drawer} ${
-        //   props.isDrawerOpen ? classes.drawerOpen : classes.drawerClose
-        // }`}
-        // classes={{
-        //   paper: `${
-        //     props.isDrawerOpen ? classes.drawerOpen : classes.drawerClose
-        //   }`,
-        // }}
-        open={props.isDrawerOpen}
-        onMouseEnter={props.openDrawer}
-        onMouseLeave={props.closeDrawer}
-        onClose={props.closeDrawer}
-      >
+      <>
+        <Drawer
+          variant="permanent"
+          // className={`${classes.drawer} ${
+          //   open ? classes.drawerOpen : classes.drawerClose
+          // }`}
+          // classes={{ paper: open ? classes.drawerOpen : classes.drawerClose }}
+          classes={{
+            paper:classes.drawerClose
+          }}
+          open={open}
+          onMouseEnter={handleDrawerOpen}
+          onMouseLeave={handleDrawerClose}
+          onClose={handleDrawerClose}
+        >
+          {/* <Toolbar /> */}
 
-        <List style={{ height: "100%" }}>
-          {props.contents.map((item, index) => {
-            return (
-              <Link
-                key={index}
-                to={{
-                  pathname: item.link,
-                }}
-                className={classes.linkStyle}
-              >
-                <ListItem button onClick={props.closeDrawer}>
-                  <div className={classes.drawerAlign}>
-                    <ListItemIcon>
-                      <Avatar>{item.icon}</Avatar>
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={
-                        <Typography
-                          noWrap
-                          variant="body2"
-                          style={{ color: "#fff" }}
-                        >
-                          {item.title}
-                        </Typography>
+          <div className={classes.logo}>
+            <img
+              src="/assets/logos/inunity_iu.svg"
+              alt="inunity logo"
+              width="47"
+              height="55"
+            />
+          </div>
+          <List style={{ height: "100%" }}>
+            {content.map((item, index) => {
+              return (
+                <Link to={item.link} key={index} className={classes.linkStyle}>
+                  <ListItem button onClick={handleDrawerClose}>
+                    <div className={classes.drawerAlign}>
+                      <ListItemIcon>
+                        <Avatar>{item.icon}</Avatar>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={
+                          <Typography
+                            noWrap
+                            variant="body2"
+                            style={{ color: "#fff" }}
+                          >
+                            {item.title}
+                          </Typography>
+                        }
+                      />
+                    </div>
+                  </ListItem>
+                </Link>
+              );
+            })}
+
+            <ListItem
+              button
+              onClick={() => {
+                navigate("/sign-in");
+              }}
+              style={{ position: "absolute", bottom: 0, left: 0 }}
+              className={classes.desktop}
+            >
+              <div className={classes.drawerAlign}>
+                <ListItemIcon>
+                  <Avatar>
+                    <LogoutIcon
+                      strokeWidth={
+                        location.pathname.startsWith("/logout") ? 3 : 1
                       }
                     />
-                  </div>
-                </ListItem>
-              </Link>
-            );
-          })}
-           <ListItem button onClick={props.closeDrawer}>
-                  <div className={classes.drawerAlign}>
-                   wdwdwddw
-                  </div>
-                </ListItem>
-        </List>
-      </Drawer>
-      {props.isDrawerOpen && (
-        <div onClick={props.closeDrawer} className={classes.backdrop}></div>
-      )}
+                  </Avatar>
+                </ListItemIcon>
+                <ListItemText
+                  primary={
+                    <Typography
+                      variant="body2"
+                      className={classes.logoutButton}
+                    >
+                      Logout
+                    </Typography>
+                  }
+                />
+              </div>
+            </ListItem>
+          </List>
+        </Drawer>
+        {open && (
+          <div onClick={handleDrawerClose} className={classes.backdrop}></div>
+        )}
+      </>
     </>
   );
-}
+};
+
+export default NavigationPanel;

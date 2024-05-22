@@ -126,7 +126,7 @@ export default function Broadcasts() {
         </div>
       </BasicTabPanel>
 
-      <div className={classes.drawer}>
+      <div>
         <Drawer
           anchor="right"
           open={open}
