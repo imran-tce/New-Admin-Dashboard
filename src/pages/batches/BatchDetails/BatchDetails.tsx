@@ -93,9 +93,7 @@ export default function BatchDetails() {
 
   useEffect(() => {
     if (batchId) {
-      console.log("batchId", batchId);
       const members = batch_member_details.filter((b) => b.batch_id == batchId);
-      console.log("members length", members.length);
       if (members?.length > 0) {
         set_batch_members(members);
         set_filtered_members(members);

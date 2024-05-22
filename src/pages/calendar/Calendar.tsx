@@ -111,10 +111,6 @@ export default function Calendar() {
       set_display_full_calendar((display) => !display);
     }
   };
-
-  console.log("events length", events.length)
-  console.log("selected day sevents", selected_date_events.length)
-
   return (
     <div className={classes.container}>
       <div className={classes.calendarContainer}>

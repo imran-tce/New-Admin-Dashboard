@@ -13,15 +13,10 @@ export default function ProfilePage() {
   const [user_profile_details, set_user_profile_details] =
     useState<UserProfileDetails>({} as UserProfileDetails);
 
-    console.log("faculty id", facultyId)
-    console.log("faculty", user_profile_details)
   useEffect(() => {
-    console.log("inside hook outside if")
     if (facultyId) {
-      console.log("inside hook inside if")
 
       const faculty = faculties.find((item) => item.id === facultyId);
-      console.log("facylty in useEffect", faculty)
       if (faculty) {
         set_user_profile_details(faculty as UserProfileDetails);
       }

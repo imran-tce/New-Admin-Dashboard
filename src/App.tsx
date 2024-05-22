@@ -34,12 +34,14 @@ function App() {
             // margin: "auto",
             width: "100%",
             position: "relative",
-            paddingLeft: CLOSED_DRAWER_WIDTH + 25,
-            paddingRight:"2rem",
-            background:"#FFF"
+            // paddingLeft: CLOSED_DRAWER_WIDTH + 25,
+            // paddingRight:"2rem",
+            background: "#FFF",
+            height: "100vh",
+            overflow: "hidden",
           }}
         >
-          <div
+          {/* <div
             style={{
               position: "absolute",
               left: 0,
@@ -50,16 +52,24 @@ function App() {
             }}
           >
             .
-          </div>
+          </div> */}
           {/* <AppDrawer
-        isDrawerOpen={isDrawerOpen}
-        onDrawerToggle={handleDrawerToggle}
-        openDrawer={openDrawer}
-        closeDrawer={closeDrawer}
-        contents={[]}
-      /> */}
+            isDrawerOpen={isDrawerOpen}
+            onDrawerToggle={handleDrawerToggle}
+            openDrawer={openDrawer}
+            closeDrawer={closeDrawer}
+            contents={[]}
+          /> */}
 
-          <div style={{ width: "100%" }}>
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              overflow: "auto",
+              paddingLeft: CLOSED_DRAWER_WIDTH + 25,
+              paddingRight: "2rem",
+            }}
+          >
             <AppRouter />
           </div>
         </div>
