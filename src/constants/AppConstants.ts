@@ -1,4 +1,4 @@
-export const ROLES = ["HOD", "Class Teacher"];
+export const ROLES = ["HOD", "Subject Lecturer"];
 
 export const SEMESTERS_LIST = [
     "Sem 1",

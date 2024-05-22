@@ -6,6 +6,7 @@ import AppRouter from "./routes/AppRouter";
 import { BrowserRouter } from "react-router-dom";
 import theme from "./theme/AppTheme";
 import { ThemeProvider } from "@mui/material";
+import FacultyRouter from "./routes/FacultyRouter";
 
 const CLOSED_DRAWER_WIDTH = 96;
 
@@ -73,7 +74,7 @@ function App() {
               paddingRight: "2rem",
             }}
           >
-            <AppRouter />
+            <FacultyRouter />
           </div>
         </div>
       </ThemeProvider>
