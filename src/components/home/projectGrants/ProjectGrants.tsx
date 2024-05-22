@@ -1,10 +1,7 @@
-import React from "react";
-import useStyles from "./ProjectGrants.styles";
 import { Typography } from "@mui/material";
-import { events_progress } from "../../../dummy data/events";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { project_grants } from "../../../dummy data/grants";
+import useStyles from "./ProjectGrants.styles";
 
 export default function ProjectGrants() {
   const classes = useStyles();
