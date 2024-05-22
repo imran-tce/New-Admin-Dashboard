@@ -8,6 +8,7 @@ import SelectInput from "../../../shared/select/SelectInput";
 import useStyles from "./Home.styles";
 import Calendar from "../../../shared/calendar/Calendar";
 import OverallAttendance from "../../components/home/overallAttendance/OverallAttendance";
+import SubjectParticipation from "../../components/home/subjectParticipation/SubjectParticipation";
 
 const GRID_ITEM_1 = ["Academic", "TRL Status"];
 
@@ -62,7 +63,9 @@ export default function Home() {
             <Broadcasts />
           </div>
 
-          <div className={classes.gridItem4}>grid item</div>
+          <div className={classes.gridItem4}>
+            <SubjectParticipation />
+          </div>
 
           <div className={classes.gridItem5}>grid item</div>
           <div className={classes.gridItem6}>

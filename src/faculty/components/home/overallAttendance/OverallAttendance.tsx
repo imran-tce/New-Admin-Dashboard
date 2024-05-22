@@ -50,7 +50,7 @@ export default function OverallAttendance() {
     datasets: [
       {
         label: "SEM 1",
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
+        data: labels.map(() => faker.datatype.number({ min: 50, max: 100 })),
         backgroundColor: "#FDC20F",
         // borderWidth: 10,
         // borderColor:"transparent",
@@ -62,7 +62,7 @@ export default function OverallAttendance() {
       },
       {
         label: "SEM 1",
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
+        data: labels.map(() => faker.datatype.number({ min: 40, max: 100 })),
         backgroundColor: "#050418",
         borderWidth: 0,
         borderRadius: Number.MAX_VALUE,
@@ -71,7 +71,7 @@ export default function OverallAttendance() {
       },
       {
         label: "SEM 3",
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 100 })),
+        data: labels.map(() => faker.datatype.number({ min: 30, max: 100 })),
         backgroundColor: "#182AD2",
         borderWidth: 0,
         borderRadius: Number.MAX_VALUE,
