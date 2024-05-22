@@ -141,6 +141,7 @@ const theme = createTheme({
       fontFamily:["SF Pro Display Semibold","sans-serif"].join(","),
       fontWeight: 600, // Set heading 4 font weight
       lineHeight: "20px", // Set heading 4 line height
+      color:"#000"
     },
     h5: {
       display:"block",
@@ -149,6 +150,7 @@ const theme = createTheme({
       fontFamily:["SF Pro Display Semibold","sans-serif"].join(","),
       fontWeight: 600, // Set heading 5 font weight
       lineHeight: "20px", // Set heading 5 line height
+      color:"#000"
     },
     subtitle1: {
       display:"block",

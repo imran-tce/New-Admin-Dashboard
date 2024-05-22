@@ -60,11 +60,11 @@ export default function TextInput(InputProps: TextFieldProps) {
                     minRows={minRows}
                     {...InputProps}
                   />
-                  {field.name === "title" && (
+                  {/* {field.name === "title" && (
                     <div className={classes.textCount}>
                       <div>{field.value.length}/50</div>
                     </div>
-                  )}
+                  )} */}
                 </>
               );
             }}
@@ -93,11 +93,11 @@ export default function TextInput(InputProps: TextFieldProps) {
                     minRows={Boolean(multiline) && minRows}
                     {...InputProps}
                   />
-                  {field.name === "title" && (
+                  {/* {field.name === "title" && (
                     <div className={classes.textCount}>
                       <div>{field.value.length}/50</div>
                     </div>
-                  )}
+                  )} */}
                 </>
               );
             }}
@@ -126,11 +126,11 @@ export default function TextInput(InputProps: TextFieldProps) {
                     minRows={Boolean(multiline) && minRows}
                     {...InputProps}
                   />
-                  {field.name === "title" && (
+                  {/* {field.name === "title" && (
                     <div className={classes.textCount}>
                       <div>{field.value.length}/50</div>
                     </div>
-                  )}
+                  )} */}
                 </>
               );
             }}

@@ -27,6 +27,22 @@ const useStyles = makeStyles((theme: Theme) =>
         height: "30px",
       },
     },
+    drawer:{
+        
+    },
+    formContainer:{
+        width:"40%",
+        padding:"3rem"
+    },
+    form:{
+        overflow:"hidden",
+        "& > div":{
+          margin:'2rem 0'
+        },
+        "& .MuiInputLabel-root":{
+          color:"#828894"
+        },
+      }
   })
 );
 
