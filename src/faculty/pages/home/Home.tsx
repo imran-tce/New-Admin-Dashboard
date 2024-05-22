@@ -7,6 +7,7 @@ import Broadcasts from "../../../hod/components/broadcasts/Broadcasts";
 import SelectInput from "../../../shared/select/SelectInput";
 import useStyles from "./Home.styles";
 import Calendar from "../../../shared/calendar/Calendar";
+import OverallAttendance from "../../components/home/overallAttendance/OverallAttendance";
 
 const GRID_ITEM_1 = ["Academic", "TRL Status"];
 
@@ -53,7 +54,9 @@ export default function Home() {
 
         <div className={classes.gridContainer}>
           <div className={classes.gridItem1}>grid item</div>
-          <div className={classes.gridItem2}>grid item</div>
+          <div className={classes.gridItem2}>
+            <OverallAttendance />
+          </div>
 
           <div className={classes.gridItem3}>
             <Broadcasts />
