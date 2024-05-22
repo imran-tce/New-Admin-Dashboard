@@ -16,6 +16,7 @@ import FacultyRatings from "../../components/home/facultyRatings/FacultyRatings"
 import StudentAchievements from "../../components/home/studentAchievements/StudentAchievements";
 import Calendar from "../calendar/Calendar";
 import Broadcasts from "../../components/broadcasts/Broadcasts";
+import FacultyAchievements from "../../components/facultyHome/studentAchievements/FacultyAchievements";
 
 const GRID_ITEM_1 = ["Academic", "TRL Status"];
 
@@ -75,7 +76,9 @@ export default function Home() {
             <Calendar />
           </div>
           <div className={classes.gridItem7}>grid item</div>
-          <div className={classes.gridItem8}>grid item</div>
+          <div className={classes.gridItem8}>
+            <FacultyAchievements />
+          </div>
           <div className={classes.gridItem9}>grid item</div>
         </div>
       </div>

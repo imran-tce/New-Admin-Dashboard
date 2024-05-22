@@ -40,7 +40,8 @@ const useStyles = makeStyles((theme: Theme) =>
       "& >div": {
         background: "#F8F8F8",
         borderRadius: "10px",
-        border:"1px solid #000"
+        border:"1px solid #000",
+        height:"100%",
       },
     },
 
