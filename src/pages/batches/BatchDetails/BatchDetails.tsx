@@ -154,6 +154,7 @@ export default function BatchDetails() {
             variant="outlined"
             color="primary"
             sx={{ borderRadius: 0, height: "40px" }}
+            onClick={()=>set_share_list(true)}
           >
             Notify examiner
           </Button>
@@ -264,15 +265,20 @@ export default function BatchDetails() {
                       <Typography variant="BR14">-</Typography>
                     </TableCell>
                     <TableCell
+                      align="justify"
                       className={
                         member.attendance > 50
                           ? classes.eligible
                           : classes.notEligible
                       }
+                      
                     >
-                      <Typography variant="BR14">
+                      <div style={{width:"100%",display:"flex", alignItems:"center", justifyContent:"center"}} >
+                      <Typography variant="BR14"  >
                         {member.attendance > 50 ? "Eligible" : "Not Eligible"}
                       </Typography>
+                      </div>
+                    
                     </TableCell>
                   </TableRow>
                 );

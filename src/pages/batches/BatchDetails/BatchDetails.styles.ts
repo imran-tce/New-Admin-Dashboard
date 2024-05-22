@@ -30,37 +30,38 @@ const useStyles = makeStyles((theme: Theme) =>
         "& .MuiTableCell-root": {
           border: "1px solid #EAEAEA",
           textAlign: "center",
-          color:"#000"
+          color: "#000",
         },
         "& .MuiTableHead-root": {
-            background:"#EAEAEA"
+          background: "#EAEAEA",
         },
         "& .MuiTableBody-root": {
-            background:"#FFF"
+          background: "#FFF",
         },
       },
     },
-    eligible:{
-        "& .MuiTypography-root":{
-            background:"#F1FFE5",
-            color:"#2AD000",
-            padding:"0.5rem 1rem",
-            borderRadius:"5px",
-            border:'1px solid #2AD000'
-
-        },
+    eligible: {
+      "& .MuiTypography-root": {
+        width: "100px",
+        background: "#F1FFE5",
+        color: "#2AD000",
+        padding: "0.5rem 1rem",
+        borderRadius: "5px",
+        border: "1px solid #2AD000",
+        textAlign: "center",
+      },
     },
-        notEligible:{
-            "& .MuiTypography-root":{
-                background:"#FFE5E7",
-                color:"#DA1E28",
-                padding:"0.5rem 1rem",
-                borderRadius:"5px",
-                border:'1px solid #DA1E28'
-    
-            }
-       
-    }
+    notEligible: {
+      width: "150px",
+      "& .MuiTypography-root": {
+        background: "#FFE5E7",
+        color: "#DA1E28",
+        padding: "0.5rem 1rem",
+        borderRadius: "5px",
+        border: "1px solid #DA1E28",
+        textAlign: "center",
+      },
+    },
   })
 );
 

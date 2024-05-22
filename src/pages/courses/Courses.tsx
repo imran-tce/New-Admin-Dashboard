@@ -203,16 +203,16 @@ export default function Courses() {
                 options={COURSE_TYPES}
               />
 
-              <div>
+              <div style={{display:"flex"}} >
                 <Button
                   variant="outlined"
                   color="primary"
                   onClick={() => set_create_course(false)}
-                  sx={{ mr: 3 }}
+                  sx={{ mr: 3, width:"150px" }}
                 >
                   Cancel
                 </Button>
-                <Button variant="contained" color="primary" type="submit">
+                <Button variant="contained" color="primary" type="submit"  sx={{  width:"150px" }}>
                   Submit
                 </Button>
               </div>
