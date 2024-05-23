@@ -4,6 +4,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import MentoringProjects from "../pages/projects/MentoringProjects";
 import ProfilePage from "../../hod/pages/faculties/profile/ProfilePage";
 import ProjetcMentoringDetails from "../pages/projects/projectMentoringDetails/ProjetcMentoringDetails";
+import CourseOutcomeAttainments from "../pages/co-attainments/CourseOutcomeAttainments";
 
 export default function FacultyRouter() {
   return (
@@ -42,6 +43,18 @@ export default function FacultyRouter() {
           </PrivateRoute>
         }
       />
+
+
+<Route
+        path="/course-outcomes"
+        element={
+          <PrivateRoute>
+            <CourseOutcomeAttainments />
+          </PrivateRoute>
+        }
+      />
+
+
     </Routes>
   );
 }

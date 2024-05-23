@@ -1,6 +1,7 @@
 import { FileUploadStatusTypes } from "../../../skill-ed-web/src/constants/constants";
 import { Article, ICourseDetails } from "../../../skill-ed-web/src/supabaseServices/extraModels";
 import {
+  Course,
   Discussion,
   EnrolledCourse,
   Institution,
@@ -355,3 +356,16 @@ export interface ITrlUploadsDto {
   trl_id: string;
   trl_level_id: string;
 }
+
+export interface CourseTemp extends Course {
+  department: string;
+  author: UserMeta;
+  semester: number;
+  academic_year: number;
+  course_type: string;
+  expert_id: string;
+  capacity:number;
+  nba_code:string;
+  co_attainment:any
+}
+
