@@ -3,6 +3,7 @@ import Home from "../pages/home/Home";
 import { PrivateRoute } from "./PrivateRoute";
 import MentoringProjects from "../pages/projects/MentoringProjects";
 import ProfilePage from "../../hod/pages/faculties/profile/ProfilePage";
+import ProjetcMentoringDetails from "../pages/projects/projectMentoringDetails/ProjetcMentoringDetails";
 
 export default function FacultyRouter() {
   return (
@@ -24,11 +25,20 @@ export default function FacultyRouter() {
         }
       />
 
-<Route
+      <Route
         path="/students/:facultyId"
         element={
           <PrivateRoute>
             <ProfilePage />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/projects/:projectId"
+        element={
+          <PrivateRoute>
+            <ProjetcMentoringDetails />
           </PrivateRoute>
         }
       />

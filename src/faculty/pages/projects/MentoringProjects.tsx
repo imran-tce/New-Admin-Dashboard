@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from "react";
 import { BasicTabPanel, BasicTabs } from "../../../shared/tabs/BasicTabs";
-import MentoringProjectsList from "../../../hod/components/projects/MentoringProjects/MentoringProjectsList";
 import Header from "../../../shared/Header/Header";
 import useStyles from "./MentoringProjects.styles";
-import MentoringStudents from "../../../hod/components/projects/MentoringStudents/MentoringStudents";
+import MentoringProjectsList from "../../components/projects/MentoringProjects/MentoringProjectsList";
+import MentoringStudents from "../../components/projects/MentoringStudents/MentoringStudents";
 
 export default function MentoringProjects() {
   const classes = useStyles();

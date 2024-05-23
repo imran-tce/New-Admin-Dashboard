@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useStyles from "./MentoringProjectsList.styles";
 import { IProject } from "../../../../../../skill-ed-web/src/supabaseServices/extraModels";
 import { projects_list } from "../../../../dummy data/projects";
@@ -24,6 +24,7 @@ export default function MentoringProjectsList() {
   );
   const [anchor_el, set_anchor_el] = useState<null | HTMLElement>(null);
   const [loading, set_loading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     set_loading(true);
@@ -32,6 +33,10 @@ export default function MentoringProjectsList() {
       set_loading(false);
     }, 1500);
   }, []);
+
+  const handleProjectClick = (id: string) => {
+    navigate(`/projects/${id}`);
+  };
 
   const handleMenuClick = (e: any, project: IProject) => {
     set_anchor_el(e.currentTarget);
@@ -88,7 +93,10 @@ export default function MentoringProjectsList() {
                     </div>
                   )}
 
-                  <CardActionArea sx={{ ":hover": { background: "#fff" } }}>
+                  <CardActionArea
+                    sx={{ ":hover": { background: "#fff" } }}
+                    onClick={() => handleProjectClick(collection.id)}
+                  >
                     <div className={classes.headingContainer}>
                       <div>
                         {collection.problemStatement?.sectors &&
