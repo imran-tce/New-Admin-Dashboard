@@ -25,7 +25,7 @@ export default function SelectInput(props: Props) {
   console.log("values", values)
   return (
     <div className={classes.root}>
-      <InputLabel>{label}</InputLabel>
+      <InputLabel  >{label}</InputLabel>
       <FormControl sx={{ minWidth: min_width || 200 }}>
         <Select
           value={value}

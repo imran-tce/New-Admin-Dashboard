@@ -3,13 +3,19 @@ import useStyles from "./AttendancePage.styles";
 import Header from "../../../shared/Header/Header";
 import { BasicTabPanel, BasicTabs } from "../../../shared/tabs/BasicTabs";
 import {
+  Button,
   Checkbox,
+  FormControlLabel,
+  FormGroup,
   IconButton,
   Menu,
   MenuItem,
+  Paper,
+  Switch,
   Table,
   TableBody,
   TableCell,
+  TableContainer,
   TableHead,
   TableRow,
   Typography,
@@ -23,8 +29,8 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import PanoramaFishEyeIcon from "@mui/icons-material/PanoramaFishEye";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { number } from "yup";
 import SelectInput from "../../../shared/select/SelectInput";
+import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 
 const tabLabels = ["All Students", "Grace Request"];
 
@@ -152,7 +158,11 @@ export default function AttendancePage() {
   }, [classroom_id]);
 
   useEffect(() => {
-    set_dates_list(generateDatesFromMonth(new Date()));
+    let dates = generateDatesFromMonth(new Date());
+    // Needs the dates only till todays date
+    const day = new Date().getDate();
+    dates = dates.filter((d) => Number(d.split("/")[0]) <= day);
+    set_dates_list(dates);
   }, []);
 
   const handleChangeTab = (_event: React.ChangeEvent<{}>, newValue: number) => {
@@ -266,19 +276,85 @@ export default function AttendancePage() {
     <div className={classes.root}>
       <Header title="Attendance" bread_crumbs={bread_crumbs} />
 
-      <div>
-        <SelectInput
-          value={classroom_id}
-          keys={attendance_classsrooms.map((obj) => obj.name)}
-          values={attendance_classsrooms.map((obj) => obj.id)}
-          onChange={(e) => set_classroom_id(e.target.value)}
-        />
+      <div className={classes.headerFilterContainer}>
+        <div className={classes.headerFilterSubContainer}>
+          <SelectInput
+            value={classroom_id}
+            keys={attendance_classsrooms.map((obj) => obj.name)}
+            values={attendance_classsrooms.map((obj) => obj.id)}
+            onChange={(e) => set_classroom_id(e.target.value)}
+            background="#FAFAFA"
+            label="Choose Class"
+          />
 
-        <SelectInput
-          value={attendance_filter}
-          keys={ATTENDANCE_FILTER.map((item) => item)}
-          onChange={(e) => set_attendance_filter(e.target.value)}
-        />
+          <SelectInput
+            value={attendance_filter}
+            keys={ATTENDANCE_FILTER.map((item) => item)}
+            onChange={(e) => set_attendance_filter(e.target.value)}
+            background="#FAFAFA"
+            label="Attendance %"
+          />
+        </div>
+
+        <div
+          className={classes.headerFilterSubContainer}
+          style={{ justifyContent: "flex-end" }}
+        >
+          <FormGroup>
+            <FormControlLabel
+              labelPlacement="start"
+              label={
+                <Typography variant="BM14" sx={{ fontSize: "16px" }}>
+                  Enable Grace Request
+                </Typography>
+              }
+              control={<Switch defaultChecked color="secondary" />}
+            />
+          </FormGroup>
+
+          <Button
+            variant="outlined"
+            color="primary"
+            sx={{
+              height: "40px",
+            }}
+          >
+            Notify Students
+          </Button>
+
+          <Button
+            variant="outlined"
+            color="primary"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              borderRadius: 0,
+              height: "40px",
+            }}
+          >
+            <ShareOutlinedIcon />
+            Share
+          </Button>
+
+          <Button
+            variant="outlined"
+            color="primary"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              borderRadius: 0,
+              height: "40px",
+            }}
+          >
+            <img
+              style={{ height: "1.5rem", marginRight: "0.5rem" }}
+              src="/download.svg"
+              alt=""
+            />
+            Export
+          </Button>
+        </div>
       </div>
 
       <BasicTabs
@@ -413,7 +489,99 @@ export default function AttendancePage() {
         </div>
       </BasicTabPanel>
       <BasicTabPanel value={value} index={2}>
-        <div> Tab 2</div>
+        <div className={classes.graceRequestTable}>
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>
+                    <Typography variant="BSb14">S.No</Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="BSb14">Name</Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="BSb14">USN</Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="BSb14">Attendance</Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="BSb14">Class Attended</Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="BSb14">Absence Proof</Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="BSb14">Status</Typography>
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+
+              <TableBody>
+                {filtered_students_data
+                  .sort((a, b) =>
+                    a.display_name
+                      .toLowerCase()
+                      .localeCompare(b.display_name.toLowerCase())
+                  )
+                  .filter((item) => item.attendnace_percentage < 50)
+                  .slice(0, 5)
+                  .map((student, index) => {
+                    return (
+                      <TableRow key={student.id}>
+                        <TableCell>
+                          <Typography variant="BR14">{index + 1} </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography variant="BR14">
+                            {student.display_name ||
+                              student.name ||
+                              student.email}{" "}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography
+                            variant="BR14"
+                            sx={{ textTransform: "uppercase" }}
+                          >
+                            {student.usn}{" "}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography
+                            variant="BR14"
+                            color={getAttendanceColor(
+                              student.attendnace_percentage
+                            )}
+                          >
+                            {student.attendnace_percentage.toFixed(1)} %
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography variant="BR14">11/50</Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography
+                            variant="BR14"
+                            sx={{
+                              color: "#004EFD",
+                              textDecoration: "underline",
+                            }}
+                          >
+                            Open
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography variant="BR14">--</Typography>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
       </BasicTabPanel>
     </div>
   );

@@ -162,7 +162,7 @@ export default function BatchDetails() {
           <Button
             variant="outlined"
             color="primary"
-            sx={{ borderRadius: 0, height: "40px" }}
+            sx={{ display:"flex", alignItems:"center",  borderRadius: 0, height: "40px" }}
           >
             <img
               style={{ height: "1.5rem", marginRight: "0.5rem" }}
