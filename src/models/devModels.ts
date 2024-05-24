@@ -1,5 +1,8 @@
 import { FileUploadStatusTypes } from "../../../skill-ed-web/src/constants/constants";
-import { Article, ICourseDetails } from "../../../skill-ed-web/src/supabaseServices/extraModels";
+import {
+  Article,
+  ICourseDetails,
+} from "../../../skill-ed-web/src/supabaseServices/extraModels";
 import {
   Batch,
   Course,
@@ -37,7 +40,8 @@ export interface IEnrolledCourse extends EnrolledCourse {
   author: User;
 }
 
-export interface RubricEvaluationCriteriaDetails extends RubricCriteriaEvaluation {
+export interface RubricEvaluationCriteriaDetails
+  extends RubricCriteriaEvaluation {
   rubric_criteria: RubricCriteria;
 }
 
@@ -75,7 +79,8 @@ export interface CourseQuizScores extends Quiz {
   quiz_scores: QuizScore;
 }
 
-export interface RubricEvaluationCriteriaDetails extends RubricCriteriaEvaluation {
+export interface RubricEvaluationCriteriaDetails
+  extends RubricCriteriaEvaluation {
   rubric_criteria: RubricCriteria;
 }
 
@@ -365,34 +370,51 @@ export interface CourseTemp extends Course {
   academic_year: number;
   course_type: string;
   expert_id: string;
-  capacity:number;
-  nba_code:string;
-  co_attainment:any
+  capacity: number;
+  nba_code: string;
+  co_attainment: any;
 }
 
-export interface CourseTempNew{
-    id:string;
-    title:string;
-    course_code:string;
-    description:string;
-    year:number;
-    semester:number;
-    author:string;
-    created_at:string;
-    updated_at:string;
-    students_enrolled:number;
-    units:{
-      title:string;
-      modules:{
-        title:string
-      }[]
-    }[]
-
+export interface CourseTempNew {
+  id: string;
+  title: string;
+  course_code: string;
+  description: string;
+  year: number;
+  semester: number;
+  author: string;
+  created_at: string;
+  updated_at: string;
+  students_enrolled: number;
+  units: {
+    title: string;
+    modules: {
+      title: string;
+    }[];
+  }[];
 }
 
+export interface StudentAttendance {
+  id: string;
+  email: string;
+  name: string;
+  display_name: string;
+  usn: string;
+  attendnace_data: {
+    date: string;
+    present: "present" | "absent" | "not_taken";
+  }[];
+  attendnace_percentage: number;
+}
 
 export interface IBatch extends Batch {
   author: UserMeta;
   academic_year: number;
   semester: number;
+}
+
+
+export interface Classroom {
+  id: string;
+  name: string;
 }

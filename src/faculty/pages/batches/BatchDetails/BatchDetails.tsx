@@ -1,6 +1,4 @@
-import {
-  Typography
-} from "@mui/material";
+import { Typography } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { batch_member_details } from "../../../../dummy data/batches";
@@ -11,6 +9,8 @@ import { BasicTabPanel, BasicTabs } from "../../../../shared/tabs/BasicTabs";
 import StudentPerformance from "../../../components/batches/batchDetails/studentPerformance/StudentPerformance";
 import StudentAssignments from "../../../components/batches/batchDetails/studentsAssignments/StudentAssignments";
 import useStyles from "./BatchDetails.styles";
+import AttendancePage from "../../attendance/AttendancePage";
+import StudentAttendanceList from "../../../components/attendance/StudentAttendanceList";
 
 export interface BatchMembersDummy {
   batch_id: string;
@@ -31,11 +31,9 @@ const TAB_LABELS = [
   "Subject Overview",
 ];
 
-const ELIGIBILITY_LIST = ["Eligibility", "Eligible", "Not ELigible"];
-
 export default function BatchDetails() {
   const classes = useStyles();
-  const [value, set_value] = useState(2);
+  const [value, set_value] = useState(4);
   const { batchId, courseId }: any = useParams();
   const [course, set_course] = useState<CourseTempNew>({} as CourseTempNew);
   const [batch_members, set_batch_members] = useState<BatchMembersDummy[]>([]);
@@ -78,11 +76,23 @@ export default function BatchDetails() {
       </Typography>
 
       <BasicTabPanel value={value} index={1}>
-        <StudentPerformance course={course} batch_members={batch_members.slice(0,course?.students_enrolled)} />
+        <StudentPerformance
+          course={course}
+          batch_members={batch_members.slice(0, course?.students_enrolled)}
+        />
       </BasicTabPanel>
 
       <BasicTabPanel value={value} index={2}>
-        <StudentAssignments course={course} batch_members={batch_members.slice(0,course?.students_enrolled)} />
+        <StudentAssignments
+          course={course}
+          batch_members={batch_members.slice(0, course?.students_enrolled)}
+        />
+      </BasicTabPanel>
+
+      <BasicTabPanel value={value} index={3}>
+        <StudentAttendanceList
+          batch_members={batch_members.slice(0, course?.students_enrolled)}
+        />
       </BasicTabPanel>
     </div>
   );

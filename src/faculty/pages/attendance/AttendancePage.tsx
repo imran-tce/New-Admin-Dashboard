@@ -31,26 +31,9 @@ import PanoramaFishEyeIcon from "@mui/icons-material/PanoramaFishEye";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SelectInput from "../../../shared/select/SelectInput";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
+import { Classroom, StudentAttendance } from "../../../models/devModels";
 
 const tabLabels = ["All Students", "Grace Request"];
-
-interface StudentAttendance {
-  id: string;
-  email: string;
-  name: string;
-  display_name: string;
-  usn: string;
-  attendnace_data: {
-    date: string;
-    present: "present" | "absent" | "not_taken";
-  }[];
-  attendnace_percentage: number;
-}
-
-interface Classroom {
-  id: string;
-  name: string;
-}
 
 const ATTENDANCE_FILTER = [
   "All Students",
@@ -89,7 +72,7 @@ export default function AttendancePage() {
             ...st,
             attendnace_data: [],
             attendnace_percentage: 0,
-          });
+          } as StudentAttendance);
         }
       });
 

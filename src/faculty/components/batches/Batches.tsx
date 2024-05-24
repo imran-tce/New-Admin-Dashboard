@@ -26,7 +26,7 @@ export default function Batches({ courses }: Props) {
   };
 
   const handleCardClick = (id: string) => {
-    navigate(`/batches/82ab936a-f969-44b6-8bd6-f09e8317afca/courses/${id}`);
+    navigate(`/batches/6f4453cf-f216-466f-886e-533512da9eac/courses/${id}`);
   };
 
   return (
