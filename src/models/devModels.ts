@@ -1,6 +1,7 @@
 import { FileUploadStatusTypes } from "../../../skill-ed-web/src/constants/constants";
 import { Article, ICourseDetails } from "../../../skill-ed-web/src/supabaseServices/extraModels";
 import {
+  Batch,
   Course,
   Discussion,
   EnrolledCourse,
@@ -369,3 +370,29 @@ export interface CourseTemp extends Course {
   co_attainment:any
 }
 
+export interface CourseTempNew{
+    id:string;
+    title:string;
+    course_code:string;
+    description:string;
+    year:number;
+    semester:number;
+    author:string;
+    created_at:string;
+    updated_at:string;
+    students_enrolled:number;
+    units:{
+      title:string;
+      modules:{
+        title:string
+      }[]
+    }[]
+
+}
+
+
+export interface IBatch extends Batch {
+  author: UserMeta;
+  academic_year: number;
+  semester: number;
+}

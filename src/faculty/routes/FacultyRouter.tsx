@@ -6,6 +6,8 @@ import ProfilePage from "../../hod/pages/faculties/profile/ProfilePage";
 import ProjetcMentoringDetails from "../pages/projects/projectMentoringDetails/ProjetcMentoringDetails";
 import CourseOutcomeAttainments from "../pages/co-attainments/CourseOutcomeAttainments";
 import AttendancePage from "../pages/attendance/AttendancePage";
+import YearWiseBatches from "../pages/batches/YearWiseBatches";
+import BatchDetails from "../pages/batches/BatchDetails/BatchDetails";
 
 export default function FacultyRouter() {
   return (
@@ -59,6 +61,24 @@ export default function FacultyRouter() {
         element={
           <PrivateRoute>
             <AttendancePage />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/batches"
+        element={
+          <PrivateRoute>
+            <YearWiseBatches />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/batches/:batchId/courses/:courseId"
+        element={
+          <PrivateRoute>
+            <BatchDetails />
           </PrivateRoute>
         }
       />

@@ -11,7 +11,7 @@ import CourseOutcomeAttainments from "../pages/co-attainments/CourseOutcomeAttai
 import FacultyRatings from "../pages/faculties/faculty-ratings/FacultyRatings";
 import { PrivateRoute } from "./PrivateRoute";
 
-export default function AppRouter() {
+export default function HodRouter() {
   return (
     <Routes>
       <Route

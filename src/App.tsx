@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import NavigationPanel from "./shared/drawer/AppDrawer";
-import AppRouter from "./hod/routes/AppRouter";
+import HodRouter from "./hod/routes/HodRouter";
 import { BrowserRouter } from "react-router-dom";
 import theme from "./theme/AppTheme";
 import { ThemeProvider } from "@mui/material";
