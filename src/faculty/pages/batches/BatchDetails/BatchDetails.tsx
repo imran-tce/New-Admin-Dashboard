@@ -11,6 +11,7 @@ import StudentAssignments from "../../../components/batches/batchDetails/student
 import useStyles from "./BatchDetails.styles";
 import AttendancePage from "../../attendance/AttendancePage";
 import StudentAttendanceList from "../../../components/attendance/StudentAttendanceList";
+import CourseOverview from "../../../components/batches/courseOverview/CourseOverview";
 
 export interface BatchMembersDummy {
   batch_id: string;
@@ -93,6 +94,10 @@ export default function BatchDetails() {
         <StudentAttendanceList
           batch_members={batch_members.slice(0, course?.students_enrolled)}
         />
+      </BasicTabPanel>
+
+      <BasicTabPanel value={value} index={4}>
+        <CourseOverview course={course} />
       </BasicTabPanel>
     </div>
   );
