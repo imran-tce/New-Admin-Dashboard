@@ -18,7 +18,6 @@ import {
   Typography,
 } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { batch_member_details } from "../../../../../dummy data/batches";
 import { CourseTempNew } from "../../../../../models/devModels";
 import SelectInput from "../../../../../shared/select/SelectInput";
 import useStyles from "./StudentPerformance.styles";
@@ -39,12 +38,12 @@ const ELIGIBILITY_LIST = ["Eligibility", "Eligible", "Not ELigible"];
 
 interface Props {
   course: CourseTempNew;
+  batch_members: BatchMembersDummy[];
 }
 
-export default function StudentPerformance({ course }: Props) {
+export default function StudentPerformance({ course, batch_members }: Props) {
   const classes = useStyles();
   const { batchId }: any = useParams();
-  const [batch_members, set_batch_members] = useState<BatchMembersDummy[]>([]);
   const [filtered_members, set_filtered_members] = useState<
     BatchMembersDummy[]
   >([]);
@@ -72,17 +71,7 @@ export default function StudentPerformance({ course }: Props) {
     } else {
       set_filtered_members(members_list);
     }
-  }, [eligibility]);
-
-  useEffect(() => {
-    if (batchId) {
-      const members = batch_member_details.filter((b) => b.batch_id == batchId);
-      if (members?.length > 0) {
-        set_batch_members(members);
-        set_filtered_members(members);
-      }
-    }
-  }, [batchId]);
+  }, [eligibility, batch_members]);
 
   const getAttendanceStyle = (attendance: number) => {
     return attendance >= 75

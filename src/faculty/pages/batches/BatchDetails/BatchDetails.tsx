@@ -54,6 +54,13 @@ export default function BatchDetails() {
   const [value, set_value] = useState(1);
   const { batchId, courseId }: any = useParams();
   const [course, set_course] = useState<CourseTempNew>({} as CourseTempNew);
+  const [batch_members, set_batch_members] = useState<BatchMembersDummy[]>([]);
+
+  useEffect(() => {
+    set_batch_members(
+      batch_member_details.filter((obj) => obj.batch_id === batchId)
+    );
+  }, [batchId]);
 
   useEffect(() => {
     set_course(
@@ -87,7 +94,7 @@ export default function BatchDetails() {
       </Typography>
 
       <BasicTabPanel value={value} index={1}>
-        <StudentPerformance course={course} />
+        <StudentPerformance course={course} batch_members={batch_members} />
       </BasicTabPanel>
     </div>
   );
