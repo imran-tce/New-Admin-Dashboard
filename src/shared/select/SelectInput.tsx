@@ -21,6 +21,8 @@ interface Props {
 export default function SelectInput(props: Props) {
   const classes = useStyles();
   const { label, keys, values, value, onChange, min_width, max_width } = props;
+  console.log("keys", keys)
+  console.log("values", values)
   return (
     <div className={classes.root}>
       <InputLabel>{label}</InputLabel>

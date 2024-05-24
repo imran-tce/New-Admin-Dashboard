@@ -244,6 +244,7 @@ const theme = createTheme({
       fontFamily:["SF Pro Display Regular","sans-serif"].join(","),
       fontWeight: 400,
       lineHeight: "initial",
+      color:"#000"
     },
     button: {
       display:"block",

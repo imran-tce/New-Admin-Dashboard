@@ -142,3 +142,32 @@ export const getInternationalDateFormat = (date: string) => {
   }
   return "";
 };
+
+
+export const generateDatesFromMonth=(date: Date): string[] => {
+  const year = date.getFullYear();
+  const month = date.getMonth(); // getMonth() returns 0-based month
+  
+  // Calculate the first day of the month
+  const firstDay = new Date(year, month, 1);
+  
+  // Calculate the last day of the month
+  const lastDay = new Date(year, month + 1, 0); // 0 here gets the last day of the previous month
+  
+  // Generate an array of dates from the first day to the last day
+  const dateList: string[] = [];
+  let currentDate = firstDay;
+  
+  const formatter = new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'numeric',
+    year: '2-digit'
+  });
+  
+  while (currentDate <= lastDay) {
+    dateList.push(formatter.format(currentDate));
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+  
+  return dateList;
+}

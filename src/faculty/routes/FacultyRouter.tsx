@@ -5,6 +5,7 @@ import MentoringProjects from "../pages/projects/MentoringProjects";
 import ProfilePage from "../../hod/pages/faculties/profile/ProfilePage";
 import ProjetcMentoringDetails from "../pages/projects/projectMentoringDetails/ProjetcMentoringDetails";
 import CourseOutcomeAttainments from "../pages/co-attainments/CourseOutcomeAttainments";
+import AttendancePage from "../pages/attendance/AttendancePage";
 
 export default function FacultyRouter() {
   return (
@@ -44,8 +45,7 @@ export default function FacultyRouter() {
         }
       />
 
-
-<Route
+      <Route
         path="/course-outcomes"
         element={
           <PrivateRoute>
@@ -54,7 +54,14 @@ export default function FacultyRouter() {
         }
       />
 
-
+      <Route
+        path="/attendance"
+        element={
+          <PrivateRoute>
+            <AttendancePage />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   );
 }
