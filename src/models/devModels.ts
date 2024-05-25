@@ -418,3 +418,15 @@ export interface Classroom {
   id: string;
   name: string;
 }
+
+
+export interface ClassTimeTable{
+  day:string;
+  subject:string;
+  class:string;
+  start_time:string;
+  end_time:string;
+  year:number;
+  semester:number;
+  section:string;
+}

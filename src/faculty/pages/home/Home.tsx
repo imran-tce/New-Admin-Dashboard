@@ -9,6 +9,7 @@ import useStyles from "./Home.styles";
 import Calendar from "../../../shared/calendar/Calendar";
 import OverallAttendance from "../../components/home/overallAttendance/OverallAttendance";
 import SubjectParticipation from "../../components/home/subjectParticipation/SubjectParticipation";
+import ClassTimeTable from "../../components/home/classTImeTable/ClassTimeTable";
 
 const GRID_ITEM_1 = ["Academic", "TRL Status"];
 
@@ -54,7 +55,9 @@ export default function Home() {
         </div>
 
         <div className={classes.gridContainer}>
-          <div className={classes.gridItem1}>grid item</div>
+          <div className={classes.gridItem1}>
+            <ClassTimeTable />
+          </div>
           <div className={classes.gridItem2}>
             <OverallAttendance />
           </div>

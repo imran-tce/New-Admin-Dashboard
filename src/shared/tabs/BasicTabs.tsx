@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme: Theme) =>
       textAlign: "left",
       margin: 0,
       "& .MuiTabs-root": {
-        background: "#FFF",
         "& .MuiTab-root": {
           textTransform: "capitalize",
           fontSize: "14px",
@@ -38,7 +37,7 @@ export function BasicTabPanel(props: BasicTabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box pt={2} >
+        <Box pt={2}>
           <p>{children}</p>
         </Box>
       )}
@@ -76,7 +75,7 @@ export function BasicTabs({
         TabIndicatorProps={{
           style: {
             backgroundColor: tabColor ? tabColor : "#FDC20F",
-            height:"3px"
+            height: "3px",
           },
         }}
         style={{ height: 0 }}

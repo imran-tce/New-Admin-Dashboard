@@ -43,7 +43,7 @@ export default function OverallAttendance() {
   const classes = useStyles();
   const [freq, set_freq] = useState(FREQUENCIES[0]);
 
-  const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   const data = {
     labels,
