@@ -34,7 +34,7 @@ const TAB_LABELS = [
 
 export default function BatchDetails() {
   const classes = useStyles();
-  const [value, set_value] = useState(4);
+  const [value, set_value] = useState(1);
   const { batchId, courseId }: any = useParams();
   const [course, set_course] = useState<CourseTempNew>({} as CourseTempNew);
   const [batch_members, set_batch_members] = useState<BatchMembersDummy[]>([]);
