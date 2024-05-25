@@ -10,6 +10,7 @@ import Calendar from "../../../shared/calendar/Calendar";
 import OverallAttendance from "../../components/home/overallAttendance/OverallAttendance";
 import SubjectParticipation from "../../components/home/subjectParticipation/SubjectParticipation";
 import ClassTimeTable from "../../components/home/classTImeTable/ClassTimeTable";
+import StudentAcademicsBoard from "../../components/home/studentAcademics/StudentAcademicsBoard";
 
 const GRID_ITEM_1 = ["Academic", "TRL Status"];
 
@@ -70,7 +71,9 @@ export default function Home() {
             <SubjectParticipation />
           </div>
 
-          <div className={classes.gridItem5}>grid item</div>
+          <div className={classes.gridItem5}>
+            <StudentAcademicsBoard />
+          </div>
           <div className={classes.gridItem6}>
             <Calendar />
           </div>
