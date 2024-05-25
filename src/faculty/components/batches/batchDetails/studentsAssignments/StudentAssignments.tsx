@@ -1,42 +1,55 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import CheckIcon from "@mui/icons-material/Check";
-import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
+import { GridCloseIcon } from "@material-ui/data-grid";
 import {
-  Button,
+  AppBar,
   Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   IconButton,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
+  Toolbar,
   Typography,
 } from "@mui/material";
-import { useParams } from "react-router-dom";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
+import { attached_documents } from "../../../../../dummy data/attached-documents";
 import { CourseTempNew } from "../../../../../models/devModels";
-import SelectInput from "../../../../../shared/select/SelectInput";
-import useStyles from "./StudentAssignments.styles";
+import { AttachedDocuments } from "../../../../../shared/fileManager/AttachedDocuments";
+import GenericRubricEvaluations from "../../../../../shared/rubrics/GenericRubricEvaluations";
 import { BatchMembersDummy } from "../studentPerformance/StudentPerformance";
+import useStyles from "./StudentAssignments.styles";
 
 interface Props {
   course: CourseTempNew;
   batch_members: BatchMembersDummy[];
 }
 
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 export default function StudentAssignments({ course, batch_members }: Props) {
   const classes = useStyles();
   const [filtered_members, set_filtered_members] = useState<
     BatchMembersDummy[]
   >([]);
+  const [open, set_open] = useState(false);
 
   useEffect(() => {
     set_filtered_members([...batch_members]);
   }, [batch_members]);
+
+  const handleClose = () => {
+    set_open(false);
+  };
 
   return (
     <div className={classes.root}>
@@ -123,7 +136,7 @@ export default function StudentAssignments({ course, batch_members }: Props) {
                     <TableCell>
                       <Typography variant="BR14">{member.usn}</Typography>
                     </TableCell>
-                    <TableCell>
+                    <TableCell onClick={() => set_open(true)}>
                       <Typography
                         variant="BM14"
                         color="#004EFD"
@@ -134,10 +147,10 @@ export default function StudentAssignments({ course, batch_members }: Props) {
                     </TableCell>
                     <TableCell>
                       <Typography variant="BR14">
-                      {Math.floor(Math.random() * 10)}/10
+                        {Math.floor(Math.random() * 10)}/10
                       </Typography>
                     </TableCell>
-                    <TableCell>
+                    <TableCell onClick={() => set_open(true)}>
                       <Typography
                         variant="BR14"
                         color="#004EFD"
@@ -151,7 +164,7 @@ export default function StudentAssignments({ course, batch_members }: Props) {
                         {member.average_assignment}/10
                       </Typography>
                     </TableCell>
-                    <TableCell>
+                    <TableCell onClick={() => set_open(true)}>
                       <Typography
                         variant="BR14"
                         color="#004EFD"
@@ -171,6 +184,32 @@ export default function StudentAssignments({ course, batch_members }: Props) {
           </TableBody>
         </Table>
       </div>
+
+      <Dialog fullScreen open={open} TransitionComponent={Transition}>
+        <AppBar>
+          <Toolbar>
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="close"
+              onClick={handleClose}
+            >
+              <GridCloseIcon />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <Toolbar />
+        <div style={{ padding: "1rem 1rem 3rem 1rem" }}>
+          <Typography variant="h4" color="black">
+            Attached Documents
+          </Typography>
+          <AttachedDocuments uploadedDocuments={attached_documents} />
+          <Typography variant="h4" color="black">
+            Evaluation Rubric
+          </Typography>
+          <GenericRubricEvaluations callback={handleClose} />
+        </div>
+      </Dialog>
     </div>
   );
 }

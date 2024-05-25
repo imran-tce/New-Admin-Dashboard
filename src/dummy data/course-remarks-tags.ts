@@ -1,0 +1,1 @@
+export const course_remarks_rags=["Excellent","Good","Average","Exceptional","Fine"]

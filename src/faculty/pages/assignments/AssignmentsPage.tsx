@@ -1,12 +1,10 @@
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import { Button } from "@mui/material";
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { attendance_classsrooms } from "../../../dummy data/attendance";
 import { batch_member_details } from "../../../dummy data/batches";
 import {
-  Classroom,
-  CourseTempNew,
-  StudentAttendance,
+    CourseTempNew
 } from "../../../models/devModels";
 import Header from "../../../shared/Header/Header";
 import SelectInput from "../../../shared/select/SelectInput";

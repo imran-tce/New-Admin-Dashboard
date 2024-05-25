@@ -175,6 +175,7 @@ export interface Rubric {
   published: boolean;
   created_by: string;
   title: string;
+  name:string
 }
 
 export interface RubricCriteria {
