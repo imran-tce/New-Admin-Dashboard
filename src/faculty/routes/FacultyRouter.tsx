@@ -8,6 +8,7 @@ import CourseOutcomeAttainments from "../pages/co-attainments/CourseOutcomeAttai
 import AttendancePage from "../pages/attendance/AttendancePage";
 import YearWiseBatches from "../pages/batches/YearWiseBatches";
 import BatchDetails from "../pages/batches/BatchDetails/BatchDetails";
+import AssignmentsPage from "../pages/assignments/AssignmentsPage";
 
 export default function FacultyRouter() {
   return (
@@ -61,6 +62,15 @@ export default function FacultyRouter() {
         element={
           <PrivateRoute>
             <AttendancePage />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/assignments"
+        element={
+          <PrivateRoute>
+            <AssignmentsPage />
           </PrivateRoute>
         }
       />

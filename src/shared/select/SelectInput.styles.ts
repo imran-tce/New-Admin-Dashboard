@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme:Theme) =>
       padding:0,
         "& .MuiInputLabel-root":{
             color:"#828894",
-            fontWeight:600,
-            fontSize:"16px"
+            fontWeight:500,
+            fontSize:"14px"
         },
         "& .MuiOutlinedInput-input":{
             padding:"0.5rem 1rem",
