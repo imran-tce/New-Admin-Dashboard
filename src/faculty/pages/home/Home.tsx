@@ -1,6 +1,6 @@
 import { Avatar, Typography } from "@mui/material";
 import { useState } from "react";
-import FacultyAchievements from "../../components/home/studentAchievements/FacultyAchievements";
+import FacultyAchievements from "../../components/home/facultyAchievements/FacultyAchievements";
 import { ROLES } from "../../../constants/AppConstants";
 import { user } from "../../../dummy data/user";
 import Broadcasts from "../../../hod/components/broadcasts/Broadcasts";
@@ -11,6 +11,8 @@ import OverallAttendance from "../../components/home/overallAttendance/OverallAt
 import SubjectParticipation from "../../components/home/subjectParticipation/SubjectParticipation";
 import ClassTimeTable from "../../components/home/classTImeTable/ClassTimeTable";
 import StudentAcademicsBoard from "../../components/home/studentAcademics/StudentAcademicsBoard";
+import MentoringStudents from "../../components/home/mentoringStudents/MentoringStudents";
+import AssignmentsOverview from "../../components/home/assignmentsOverview/AssignmentsOverview";
 
 const GRID_ITEM_1 = ["Academic", "TRL Status"];
 
@@ -77,11 +79,15 @@ export default function Home() {
           <div className={classes.gridItem6}>
             <Calendar />
           </div>
-          <div className={classes.gridItem7}>grid item</div>
+          <div className={classes.gridItem7}>
+            <MentoringStudents />
+          </div>
           <div className={classes.gridItem8}>
             <FacultyAchievements />
           </div>
-          <div className={classes.gridItem9}>grid item</div>
+          <div className={classes.gridItem9}>
+            <AssignmentsOverview />
+          </div>
         </div>
       </div>
     </div>
